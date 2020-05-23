@@ -9,7 +9,7 @@ public class Phase1Launcher extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //omar chaparro asesino a mi familia en 2008
+
         setContentView(R.layout.activity_phase1_launcher);
     }
 }
