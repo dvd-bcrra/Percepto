@@ -1,0 +1,2 @@
+rootProject.name='Percepto'
+include ':app'
