@@ -15,7 +15,6 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COLUMN_USER_NAME = "name";
     public static final String COLUMN_USER_USERNAME = "username";
     public static final String COLUMN_USER_PASSWORD = "password";
-    public static final String COLUMN_USER_CNFRMPASS = "cnfrmpassword";
 
     //TABLA PARTICIPANTES
     public static final String PARTICIPANT_TABLE = "participants";              //  participantes
@@ -60,8 +59,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(" CREATE TABLE " + USER_TABLE +
                  "(" + COLUMN_USER_NAME + " TEXT, "
                      + COLUMN_USER_USERNAME + " TEXT, "
-                     + COLUMN_USER_PASSWORD + " TEXT, "
-                     + COLUMN_USER_CNFRMPASS + " TEXT " +");");
+                     + COLUMN_USER_PASSWORD + " TEXT " +");");
 
         //CREAR TABLA PARTICIPANTE
         db.execSQL(" CREATE TABLE " + PARTICIPANT_TABLE +
@@ -81,11 +79,13 @@ public class DBHelper extends SQLiteOpenHelper {
                 + COLUMN_PARTICIPANT_ANX + " TEXT, "
                 + COLUMN_PARTICIPANT_DPRS + " TEXT " +");");
 
+        //CREAR TABLA EVALUACIONES
         db.execSQL(" CREATE TABLE " + EVAL1_TABLE +
                 "(" + COLUMN_EVAL1_ID + " TEXT, "
                 + COLUMN_EVAL1_CURP + " TEXT, "
                 + COLUMN_EVAL1_DATE + " TEXT " +");");
 
+        //CREAR TABLA REGISTROS
         db.execSQL(" CREATE TABLE " + RECORDS1_TABLE +
                 "(" + COLUMN_RECORDS1_EVAL1_ID + " TEXT, "
                 + COLUMN_RECORD1_WORD + " TEXT, "
@@ -105,20 +105,19 @@ public class DBHelper extends SQLiteOpenHelper {
 
     /* Storing User details*/
 
-    void addUser(String name, String username, String password, String cnfrmpassword) {
+    void addUser(String name, String username, String password) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
         values.put(COLUMN_USER_NAME, name);
         values.put(COLUMN_USER_USERNAME, username);
         values.put(COLUMN_USER_PASSWORD, password);
-        values.put(COLUMN_USER_CNFRMPASS, cnfrmpassword);
 
         db.insert(USER_TABLE, null, values);
         db.close();
     }
 
-    public Cursor getData(){
+    public Cursor getUsersData(){
         SQLiteDatabase db = this.getWritableDatabase();
         return db.rawQuery("SELECT * FROM " + USER_TABLE, null);
     }

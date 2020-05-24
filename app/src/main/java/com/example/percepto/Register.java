@@ -70,8 +70,7 @@ public class Register extends AppCompatActivity {
 
         else {
             dbHelper.addUser(name.getText().toString(),
-                    user1.getText().toString(), pass.getText().toString(),
-                    cnfrmpass.getText().toString());
+                    user1.getText().toString(), pass.getText().toString());
 
             Toast.makeText(Register.this, "Data Inserted", Toast.LENGTH_LONG).show();
 
