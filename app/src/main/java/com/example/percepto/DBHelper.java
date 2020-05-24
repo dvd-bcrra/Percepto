@@ -18,8 +18,23 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COLUMN_USER_CNFRMPASS = "cnfrmpassword";
 
     //TABLA PARTICIPANTES
-    public static final String PARTICIPANT_TABLE = "participants";
-    public static final String COLUMN_PARTICIPANT_NAME
+    public static final String PARTICIPANT_TABLE = "participants";              //  participantes
+    public static final String COLUMN_PARTICIPANT_CURP = "curp";                //  CURP - Primary key
+    public static final String COLUMN_PARTICIPANT_FIRSTNAME = "firstname";      //  nombre
+    public static final String COLUMN_PARTICIPANT_LASTNAME = "lastname";        //  apellido
+    public static final String COLUMN_PARTICIPANT_BIRTHDAY = "birthday";        //  fecha de nacimiento
+    public static final String COLUMN_PARTICIPANT_AGE = "age";                  //  Edad
+    public static final String COLUMN_PARTICIPANT_GROUP = "group";              //  grupo
+    public static final String COLUMN_PARTICIPANT_TIME = "time";                //  tiempo en la institucion
+    public static final String COLUMN_PARTICIPANT_LEVEL = "level";              //  Nivel educativo
+    public static final String COLUMN_PARTICIPANT_IQ = "iq";                    //  Coeficeinte intelectual
+    public static final String COLUMN_PARTICIPANT_TEPT = "tept";                //  Transtorno por estres postraumatico
+    public static final String COLUMN_PARTICIPANT_REEXP = "reexp";              //  Reexperimentacion
+    public static final String COLUMN_PARTICIPANT_AVOID = "avoid";              //  Evitacion
+    public static final String COLUMN_PARTICIPANT_ACTIVE = "active";            //  Activacion
+    public static final String COLUMN_PARTICIPANT_ANX = "anx";                  //  Ansiedad
+    public static final String COLUMNS_PARTICIPANT_DPRS = "dprs";               //  Depresion
+
 
     public SQLiteDatabase db ;
 
