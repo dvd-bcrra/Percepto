@@ -6,48 +6,49 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.example.percepto.model.Participant;
 import com.example.percepto.model.User;
 
 public class DBHelper extends SQLiteOpenHelper {
     public static final String TAG = DBHelper.class.getSimpleName();
-    public static final String DB_NAME = "singin.db";
+    private static final String DB_NAME = "singin.db";
 
     //TABLA USUARIOS
-    public static final String USER_TABLE = "users";
-    public static final String COLUMN_USER_NAME = "name";
-    public static final String COLUMN_USER_USERNAME = "username";
-    public static final String COLUMN_USER_PASSWORD = "password";
-    public static final String COLUMN_USER_ISADMIN = "isadmin";
+    private static final String USER_TABLE = "users";
+    private static final String COLUMN_USER_NAME = "name";
+    private static final String COLUMN_USER_USERNAME = "username";
+    private static final String COLUMN_USER_PASSWORD = "password";
+    private static final String COLUMN_USER_ISADMIN = "isadmin";
 
     //TABLA PARTICIPANTES
-    public static final String PARTICIPANT_TABLE = "participants";              //  participantes
-    public static final String COLUMN_PARTICIPANT_CURP = "curp";                //  CURP - (PK)
-    public static final String COLUMN_PARTICIPANT_FIRSTNAME = "firstname";      //  nombre
-    public static final String COLUMN_PARTICIPANT_LASTNAME = "lastname";        //  apellido
-    public static final String COLUMN_PARTICIPANT_BIRTHDAY = "birthday";        //  fecha de nacimiento
-    public static final String COLUMN_PARTICIPANT_AGE = "age";                  //  Edad
-    public static final String COLUMN_PARTICIPANT_GROUP = "grupo";              //  grupo
-    public static final String COLUMN_PARTICIPANT_TIME = "time";                //  tiempo en la institucion
-    public static final String COLUMN_PARTICIPANT_LEVEL = "level";              //  Nivel educativo
-    public static final String COLUMN_PARTICIPANT_IQ = "iq";                    //  Coeficeinte intelectual
-    public static final String COLUMN_PARTICIPANT_TEPT = "tept";                //  Transtorno por estres postraumatico
-    public static final String COLUMN_PARTICIPANT_REEXP = "reexp";              //  Reexperimentacion
-    public static final String COLUMN_PARTICIPANT_AVOID = "avoid";              //  Evitacion
-    public static final String COLUMN_PARTICIPANT_ACTIVE = "active";            //  Activacion
-    public static final String COLUMN_PARTICIPANT_ANX = "anx";                  //  Ansiedad
-    public static final String COLUMN_PARTICIPANT_DPRS = "dprs";               //  Depresion
+    private static final String PARTICIPANT_TABLE = "participants";              //  participantes
+    private static final String COLUMN_PARTICIPANT_CURP = "curp";                //  CURP - (PK)
+    private static final String COLUMN_PARTICIPANT_FIRSTNAME = "firstname";      //  nombre
+    private static final String COLUMN_PARTICIPANT_LASTNAME = "lastname";        //  apellido
+    private static final String COLUMN_PARTICIPANT_BIRTHDAY = "birthday";        //  fecha de nacimiento
+    private static final String COLUMN_PARTICIPANT_AGE = "age";                  //  Edad
+    private static final String COLUMN_PARTICIPANT_GROUP = "grupo";              //  grupo
+    private static final String COLUMN_PARTICIPANT_TIME = "time";                //  tiempo en la institucion
+    private static final String COLUMN_PARTICIPANT_LEVEL = "level";              //  Nivel educativo
+    private static final String COLUMN_PARTICIPANT_IQ = "iq";                    //  Coeficeinte intelectual
+    private static final String COLUMN_PARTICIPANT_TEPT = "tept";                //  Transtorno por estres postraumatico
+    private static final String COLUMN_PARTICIPANT_REEXP = "reexp";              //  Reexperimentacion
+    private static final String COLUMN_PARTICIPANT_AVOID = "avoid";              //  Evitacion
+    private static final String COLUMN_PARTICIPANT_ACTIVE = "active";            //  Activacion
+    private static final String COLUMN_PARTICIPANT_ANX = "anx";                  //  Ansiedad
+    private static final String COLUMN_PARTICIPANT_DPRS = "dprs";                //  Depresion
 
     //TABLA EVALUACIONES 1
-    public static final String EVAL1_TABLE = "evals1";                          //  Evaluaciones 1
-    public static final String COLUMN_EVAL1_ID = "id";                          //  ID o clave de evaluacion 1 (PK)
-    public static final String COLUMN_EVAL1_CURP = "curp";                      //  Curp del participante
-    public static final String COLUMN_EVAL1_DATE = "date";                      //  Fecha de la evaluacion 1
+    private static final String EVAL1_TABLE = "evals1";                          //  Evaluaciones 1
+    private static final String COLUMN_EVAL1_ID = "id";                          //  ID o clave de evaluacion 1 (PK)
+    private static final String COLUMN_EVAL1_CURP = "curp";                      //  Curp del participante
+    private static final String COLUMN_EVAL1_DATE = "date";                      //  Fecha de la evaluacion 1
 
     //TABLA REGISTROS1
-    public static final String RECORDS1_TABLE = "eval1Records";                 //  Registros de la evaluacion 1
-    public static final String COLUMN_RECORDS1_EVAL1_ID = "eval1_id";           //  ID o clave de la evaluacion 1 (FK)
-    public static final String COLUMN_RECORD1_WORD = "word";                    //  Palabra a evaluar
-    public static final String COLUMN_RECORD1_SCORE = "score";                  //  calificacion dada
+    private static final String RECORDS1_TABLE = "eval1Records";                 //  Registros de la evaluacion 1
+    private static final String COLUMN_RECORDS1_EVAL1_ID = "eval1_id";           //  ID o clave de la evaluacion 1 (FK)
+    private static final String COLUMN_RECORD1_WORD = "word";                    //  Palabra a evaluar
+    private static final String COLUMN_RECORD1_SCORE = "score";                  //  calificacion dada
 
     public SQLiteDatabase db ;
 
@@ -109,8 +110,8 @@ public class DBHelper extends SQLiteOpenHelper {
 
 
     //AGREGAR USUARIO
-    void addUser(User user) {
-        SQLiteDatabase db = this.getWritableDatabase();
+    void AddUser(User user) {
+        db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
         values.put(COLUMN_USER_NAME, user.getNAME());
@@ -123,6 +124,30 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     //AGREGAR PARTICIPANTE
+    void AddParticipant(Participant participant){
+        db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+
+        values.put(COLUMN_PARTICIPANT_CURP,participant.getCURP());
+        values.put(COLUMN_PARTICIPANT_FIRSTNAME,participant.getFIRSTNAME());
+        values.put(COLUMN_PARTICIPANT_LASTNAME,participant.getLASTNAME());
+        values.put(COLUMN_PARTICIPANT_BIRTHDAY,participant.getBIRTHDAY());
+        values.put(COLUMN_PARTICIPANT_AGE,participant.getAGE());
+        values.put(COLUMN_PARTICIPANT_GROUP,participant.getGROUP());
+        values.put(COLUMN_PARTICIPANT_TIME,participant.getTIME());
+        values.put(COLUMN_PARTICIPANT_LEVEL,participant.getLEVEL());
+        values.put(COLUMN_PARTICIPANT_IQ,participant.getIQ());
+        values.put(COLUMN_PARTICIPANT_TEPT,participant.getTEPT());
+        values.put(COLUMN_PARTICIPANT_REEXP,participant.getREEXP());
+        values.put(COLUMN_PARTICIPANT_AVOID,participant.getAVOID());
+        values.put(COLUMN_PARTICIPANT_ACTIVE,participant.getACTIVE());
+        values.put(COLUMN_PARTICIPANT_ANX,participant.getANX());
+        values.put(COLUMN_PARTICIPANT_DPRS,participant.getDPRS());
+
+        db.insert(PARTICIPANT_TABLE,null,values);
+        db.close();
+    }
 
     public Cursor getUsersData(){
         SQLiteDatabase db = this.getWritableDatabase();

@@ -75,7 +75,7 @@ public class Register extends AppCompatActivity {
             newUser.setPASSWORD(pass.getText().toString());
             newUser.setADMIN(true);
 
-            dbHelper.addUser(newUser);
+            dbHelper.AddUser(newUser);
 
             Toast.makeText(Register.this, "Data Inserted", Toast.LENGTH_LONG).show();
 
