@@ -33,7 +33,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COLUMN_PARTICIPANT_AVOID = "avoid";              //  Evitacion
     public static final String COLUMN_PARTICIPANT_ACTIVE = "active";            //  Activacion
     public static final String COLUMN_PARTICIPANT_ANX = "anx";                  //  Ansiedad
-    public static final String COLUMNS_PARTICIPANT_DPRS = "dprs";               //  Depresion
+    public static final String COLUMN_PARTICIPANT_DPRS = "dprs";               //  Depresion
 
     //TABLA EVALUACIONES 1
     public static final String EVAL1_TABLE = "evals1";                          //  Evaluaciones 1
@@ -79,7 +79,17 @@ public class DBHelper extends SQLiteOpenHelper {
                 + COLUMN_PARTICIPANT_AVOID + " TEXT, "
                 + COLUMN_PARTICIPANT_ACTIVE + " TEXT, "
                 + COLUMN_PARTICIPANT_ANX + " TEXT, "
-                + COLUMNS_PARTICIPANT_DPRS + " TEXT " +");");
+                + COLUMN_PARTICIPANT_DPRS + " TEXT " +");");
+
+        db.execSQL(" CREATE TABLE " + EVAL1_TABLE +
+                "(" + COLUMN_EVAL1_ID + " TEXT, "
+                + COLUMN_EVAL1_CURP + " TEXT, "
+                + COLUMN_EVAL1_DATE + " TEXT " +");");
+
+        db.execSQL(" CREATE TABLE " + RECORDS1_TABLE +
+                "(" + COLUMN_RECORDS1_EVAL1_ID + " TEXT, "
+                + COLUMN_RECORD1_WORD + " TEXT, "
+                + COLUMN_RECORD1_SCORE + " INTEGER " +");");
 
     }
 
@@ -87,6 +97,9 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + USER_TABLE + ";");
+        db.execSQL("DROP TABLE IF EXISTS " + PARTICIPANT_TABLE + ";");
+        db.execSQL("DROP TABLE IF EXISTS " + EVAL1_TABLE + ";");
+        db.execSQL("DROP TABLE IF EXISTS " + RECORDS1_TABLE + ";");
         onCreate(db);
     }
 
