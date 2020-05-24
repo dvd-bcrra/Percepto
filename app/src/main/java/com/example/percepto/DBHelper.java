@@ -14,11 +14,11 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String DB_NAME = "singin.db";
 
     //TABLA USUARIOS
-    private static final String USER_TABLE = "users";
-    private static final String COLUMN_USER_NAME = "name";
-    private static final String COLUMN_USER_USERNAME = "username";
-    private static final String COLUMN_USER_PASSWORD = "password";
-    private static final String COLUMN_USER_ISADMIN = "isadmin";
+    public static final String USER_TABLE = "users";
+    public static final String COLUMN_USER_NAME = "name";
+    public static final String COLUMN_USER_USERNAME = "username";
+    public static final String COLUMN_USER_PASSWORD = "password";
+    public static final String COLUMN_USER_ISADMIN = "isadmin";
 
     //TABLA PARTICIPANTES
     private static final String PARTICIPANT_TABLE = "participants";              //  participantes
@@ -50,7 +50,7 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String COLUMN_RECORD1_WORD = "word";                    //  Palabra a evaluar
     private static final String COLUMN_RECORD1_SCORE = "score";                  //  calificacion dada
 
-    public SQLiteDatabase db ;
+    private SQLiteDatabase db ;
 
     public DBHelper(Context context) {
         super(context, DB_NAME, null, 1);

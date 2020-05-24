@@ -57,9 +57,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                cursor = db.rawQuery("SELECT * FROM " + DBHelper.USER_TABLE + " WHERE "
-                                + DBHelper.COLUMN_USER_USERNAME + " =? AND " + DBHelper.COLUMN_USER_PASSWORD + " =?",
-                        new String[]{username1.getText().toString(), pass.getText().toString()});
+                cursor = db.rawQuery("SELECT * FROM " + DBHelper.USER_TABLE
+                                + " WHERE " + DBHelper.COLUMN_USER_USERNAME + " =? AND "
+                                + DBHelper.COLUMN_USER_PASSWORD + " =?",
+                                new String[] {
+                                        username1.getText().toString(),
+                                        pass.getText().toString()
+                                });
 
                 if(username1.getText().toString().equals("")|| pass.getText().toString().equals(""))
                 {
@@ -71,10 +75,10 @@ public class MainActivity extends AppCompatActivity {
                     if (cursor.getCount() > 0) {
                         cursor.moveToFirst();
 
-                        Toast.makeText(MainActivity.this, "Logged In succesfully!",
-                                Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this, "Logged In succesfully!", Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(MainActivity.this, Register.class);
                         startActivity(intent);
+
                     } else {
                         Toast.makeText(MainActivity.this, "Invalid username or password!",
                                 Toast.LENGTH_SHORT).show();
