@@ -15,6 +15,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.percepto.model.User;
+
 public class Register extends AppCompatActivity {
     EditText name, user1, pass, cnfrmpass;
     Button signin;
@@ -66,11 +68,14 @@ public class Register extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Password does not match", Toast.LENGTH_LONG).show();
         }
 
-
-
         else {
-            dbHelper.addUser(name.getText().toString(),
-                    user1.getText().toString(), pass.getText().toString());
+            User newUser = new User();
+            newUser.setNAME(name.getText().toString());
+            newUser.setUSERNAME(user1.getText().toString());
+            newUser.setPASSWORD(pass.getText().toString());
+            newUser.setADMIN(true);
+
+            dbHelper.addUser(newUser);
 
             Toast.makeText(Register.this, "Data Inserted", Toast.LENGTH_LONG).show();
 

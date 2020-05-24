@@ -4,6 +4,15 @@ public class User {
     private String NAME;
     private String USERNAME;
     private String PASSWORD;
+    private boolean ADMIN;
+
+    public boolean isADMIN() {
+        return ADMIN;
+    }
+
+    public void setADMIN(boolean ADMIN) {
+        this.ADMIN = ADMIN;
+    }
 
     public String getNAME() {
         return NAME;

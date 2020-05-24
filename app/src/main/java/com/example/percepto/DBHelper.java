@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.example.percepto.model.User;
+
 public class DBHelper extends SQLiteOpenHelper {
     public static final String TAG = DBHelper.class.getSimpleName();
     public static final String DB_NAME = "singin.db";
@@ -15,6 +17,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COLUMN_USER_NAME = "name";
     public static final String COLUMN_USER_USERNAME = "username";
     public static final String COLUMN_USER_PASSWORD = "password";
+    public static final String COLUMN_USER_ISADMIN = "isadmin";
 
     //TABLA PARTICIPANTES
     public static final String PARTICIPANT_TABLE = "participants";              //  participantes
@@ -59,7 +62,8 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(" CREATE TABLE " + USER_TABLE +
                  "(" + COLUMN_USER_NAME + " TEXT, "
                      + COLUMN_USER_USERNAME + " TEXT, "
-                     + COLUMN_USER_PASSWORD + " TEXT " +");");
+                     + COLUMN_USER_PASSWORD + " TEXT, "
+                     + COLUMN_USER_ISADMIN + " INTEGER " +");");
 
         //CREAR TABLA PARTICIPANTE
         db.execSQL(" CREATE TABLE " + PARTICIPANT_TABLE +
@@ -82,8 +86,8 @@ public class DBHelper extends SQLiteOpenHelper {
         //CREAR TABLA EVALUACIONES
         db.execSQL(" CREATE TABLE " + EVAL1_TABLE +
                 "(" + COLUMN_EVAL1_ID + " TEXT, "
-                + COLUMN_EVAL1_CURP + " TEXT, "
-                + COLUMN_EVAL1_DATE + " TEXT " +");");
+                    + COLUMN_EVAL1_CURP + " TEXT, "
+                    + COLUMN_EVAL1_DATE + " TEXT " +");");
 
         //CREAR TABLA REGISTROS
         db.execSQL(" CREATE TABLE " + RECORDS1_TABLE +
@@ -103,19 +107,22 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    /* Storing User details*/
 
-    void addUser(String name, String username, String password) {
+    //AGREGAR USUARIO
+    void addUser(User user) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(COLUMN_USER_NAME, name);
-        values.put(COLUMN_USER_USERNAME, username);
-        values.put(COLUMN_USER_PASSWORD, password);
+        values.put(COLUMN_USER_NAME, user.getNAME());
+        values.put(COLUMN_USER_USERNAME, user.getPASSWORD());
+        values.put(COLUMN_USER_PASSWORD, user.getPASSWORD());
+        values.put(COLUMN_USER_ISADMIN,user.isADMIN());
 
         db.insert(USER_TABLE, null, values);
         db.close();
     }
+
+    //AGREGAR PARTICIPANTE
 
     public Cursor getUsersData(){
         SQLiteDatabase db = this.getWritableDatabase();
