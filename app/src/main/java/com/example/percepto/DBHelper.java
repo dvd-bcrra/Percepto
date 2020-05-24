@@ -10,11 +10,16 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String TAG = DBHelper.class.getSimpleName();
     public static final String DB_NAME = "singin.db";
 
+    //TABLA USUARIOS
     public static final String USER_TABLE = "users";
-    public static final String COLUMN_NAME = "name";
-    public static final String COLUMN_USERNAME = "username";
-    public static final String COLUMN_PASSWORD = "password";
-    public static final String COLUMN_CNFRMPASS = "cnfrmpassword";
+    public static final String COLUMN_USER_NAME = "name";
+    public static final String COLUMN_USER_USERNAME = "username";
+    public static final String COLUMN_USER_PASSWORD = "password";
+    public static final String COLUMN_USER_CNFRMPASS = "cnfrmpassword";
+
+    //TABLA PARTICIPANTES
+    public static final String PARTICIPANT_TABLE = "participants";
+    public static final String COLUMN_PARTICIPANT_NAME
 
     public SQLiteDatabase db ;
 
@@ -26,8 +31,11 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(" CREATE TABLE " + USER_TABLE +
-                "(" + COLUMN_NAME + " TEXT, " + COLUMN_USERNAME + " TEXT, " +
-                COLUMN_PASSWORD + " TEXT, " + COLUMN_CNFRMPASS + " TEXT " +")");    }
+                 "(" + COLUMN_USER_NAME + " TEXT, "
+                     + COLUMN_USER_USERNAME + " TEXT, "
+                     + COLUMN_USER_PASSWORD + " TEXT, "
+                     + COLUMN_USER_CNFRMPASS + " TEXT " +")");
+    }
 
 
     @Override
@@ -38,14 +46,14 @@ public class DBHelper extends SQLiteOpenHelper {
 
     /* Storing User details*/
 
-    public void addUser(String name, String username, String password, String cnfrmpassword) {
+    void addUser(String name, String username, String password, String cnfrmpassword) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(COLUMN_NAME, name);
-        values.put(COLUMN_USERNAME, username);
-        values.put(COLUMN_PASSWORD, password);
-        values.put(COLUMN_CNFRMPASS, cnfrmpassword);
+        values.put(COLUMN_USER_NAME, name);
+        values.put(COLUMN_USER_USERNAME, username);
+        values.put(COLUMN_USER_PASSWORD, password);
+        values.put(COLUMN_USER_CNFRMPASS, cnfrmpassword);
 
         db.insert(USER_TABLE, null, values);
         db.close();

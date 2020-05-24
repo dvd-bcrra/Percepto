@@ -58,11 +58,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 cursor = db.rawQuery("SELECT * FROM " + DBHelper.USER_TABLE + " WHERE "
-                                + DBHelper.COLUMN_USERNAME + " =? AND " + DBHelper.COLUMN_PASSWORD + " =?",
+                                + DBHelper.COLUMN_USER_USERNAME + " =? AND " + DBHelper.COLUMN_USER_PASSWORD + " =?",
                         new String[]{username1.getText().toString(), pass.getText().toString()});
 
-                if(username1.getText().toString().equals("")||
-                        pass.getText().toString().equals(""))
+                if(username1.getText().toString().equals("")|| pass.getText().toString().equals(""))
                 {
                     Toast.makeText(getApplicationContext(), "Username and Password can't be empty", Toast.LENGTH_LONG).show();
                     return;
