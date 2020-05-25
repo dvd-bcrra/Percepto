@@ -1,6 +1,8 @@
 package com.example.percepto.Words;
 
-import android.content.res.AssetManager;;
+import android.content.Context;
+import android.content.res.AssetManager;
+import android.util.Log;;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -11,15 +13,29 @@ import java.io.InputStream;
 import java.util.ArrayList;
 
 public class JsonWords{
-    AssetManager as;
+    static Context context;
+
+    private static JsonWords JsonWords_Instance = null;
     public ArrayList<String> TodasLasPalabras = new ArrayList<>();
     public ArrayList<String> PalabrasAlegres = new ArrayList<>();
     public ArrayList<String> PalabrasMiedosas = new ArrayList<>();
     public ArrayList<String> PalabrasNeutras = new ArrayList<>();
 
-    public JsonWords(AssetManager as){
-        this.as = as;
+    private JsonWords(){
         getTodasLasPalabras();
+    }
+
+    public static JsonWords getInstance(Context context){
+        if(JsonWords_Instance == null){
+            JsonWords.context = context;
+            JsonWords_Instance = new JsonWords();
+        }
+
+        return  JsonWords_Instance;
+    }
+
+    public static JsonWords getInstance(){
+        return  JsonWords_Instance;
     }
 
     private void getTodasLasPalabras(){
@@ -27,7 +43,7 @@ public class JsonWords{
         InputStream is;
 
         try {
-            is = as.open("words.json");
+            is = context.getAssets().open("words.json");
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);

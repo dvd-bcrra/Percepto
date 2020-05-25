@@ -1,5 +1,4 @@
-{
-  "Palabras": [
+[
     {
       "Palabra": "Regalo",
       "Estimulo": "Alegria"
@@ -481,4 +480,3 @@
       "Estimulo": "Neutro"
     }
   ]
-}

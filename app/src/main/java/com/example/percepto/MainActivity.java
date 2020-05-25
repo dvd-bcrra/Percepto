@@ -17,6 +17,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.percepto.Words.JsonWords;
+
 public class MainActivity extends AppCompatActivity {
 
     EditText username1, pass;
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     CheckBox show;
     DBHelper dbHelper;
     SQLiteDatabase db;
+    JsonWords jw;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         dbHelper = new DBHelper(this);
         db = dbHelper.getReadableDatabase();
+        jw = JsonWords.getInstance(this);
 
         regis = (TextView) findViewById(R.id.regis);
 
