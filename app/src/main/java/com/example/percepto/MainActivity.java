@@ -82,6 +82,8 @@ public class MainActivity extends AppCompatActivity {
                         cursor.moveToFirst();
 
                         Toast.makeText(MainActivity.this, "Logged In succesfully!", Toast.LENGTH_LONG).show();
+
+                        /* MOMENTANEAMENTE ENVIANDO A FASE 1 PARA PRUEBAS */
                         Intent intent = new Intent(MainActivity.this, Phase1.class);
                         startActivity(intent);
 
