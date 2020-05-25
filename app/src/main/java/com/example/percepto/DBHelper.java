@@ -52,11 +52,6 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String COLUMN_RECORD1_WORD = "word";                    //  Palabra a evaluar
     private static final String COLUMN_RECORD1_SCORE = "score";                  //  calificacion dada
 
-    //TABLA PALABRAS
-    public static final String WORDS_TABLE = "words";                           //  Tabla palabras
-    public static final String COLUMN_WORDS_WORD = "word";                            //  Una palabra
-    public static final String COLUMN_WORDS_LABEL = "label";                          //  El estimulo
-
     private SQLiteDatabase db ;
 
     public DBHelper(Context context) {
@@ -102,16 +97,6 @@ public class DBHelper extends SQLiteOpenHelper {
                 "(" + COLUMN_RECORDS1_EVAL1_ID + " TEXT, "
                 + COLUMN_RECORD1_WORD + " TEXT, "
                 + COLUMN_RECORD1_SCORE + " INTEGER" +");");
-
-        //CREA TABLA PALABRAS
-        db.execSQL(
-                "CREATE TABLE " + WORDS_TABLE + "("
-                + COLUMN_WORDS_WORD + " TEXT, "
-                + COLUMN_WORDS_LABEL + " TEXT" + ");"
-        );
-
-        //INSERTAR PALABRAS
-        insertWords(db);
     }
 
 
@@ -168,18 +153,5 @@ public class DBHelper extends SQLiteOpenHelper {
     public Cursor getUsersData(){
         SQLiteDatabase db = this.getWritableDatabase();
         return db.rawQuery("SELECT * FROM " + USER_TABLE, null);
-    }
-
-    public void insertWords(SQLiteDatabase db){
-        ContentValues values = new ContentValues();
-        ArrayList<Word> words = Words.words();
-
-        for (Word word: words){
-            values.put(COLUMN_WORDS_WORD,word.Word);
-            values.put(COLUMN_WORDS_LABEL,word.Label);
-        }
-
-        db.insert(WORDS_TABLE,null,values);
-        db.close();
     }
 }

@@ -4,7 +4,7 @@ public class Word{
     public String Word;
     public String Label;
 
-    public Word(String Word, String Label){
+    Word(String Word, String Label){
         this.Word = Word;
         this.Label = Label;
     }
