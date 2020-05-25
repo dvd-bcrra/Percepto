@@ -9,15 +9,22 @@ public class Session {
     private SharedPreferences prefs;
 
     public Session(Context cntx) {
-        // TODO Auto-generated constructor stub
         prefs = PreferenceManager.getDefaultSharedPreferences(cntx);
     }
 
-    public void setusename(String usename) {
-        prefs.edit().putString("usename", usename).apply();
+    public void setUser(String usename) {
+        prefs.edit().putString("user", usename).apply();
     }
 
-    public String getusename() {
-        return prefs.getString("usename","");
+    public String getUser() {
+        return prefs.getString("user","");
+    }
+
+    public void setCurrentParticipant(String curp){
+        prefs.edit().putString("currentParticipant",curp).apply();
+    }
+
+    public String getCurrentParticipant(){
+        return prefs.getString("currentParticipant","");
     }
 }

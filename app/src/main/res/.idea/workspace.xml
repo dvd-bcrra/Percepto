@@ -1,14 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a3169729-7eb1-4f1b-ba6a-f9fa1aef5cf1" name="Default Changelist" comment="" />
+    <list default="true" id="a3169729-7eb1-4f1b-ba6a-f9fa1aef5cf1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../java/com/example/percepto/Phase1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/drawable/ic_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/drawable/light_purple_background.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/layout/activity_phase1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java/com/example/percepto/Phase1Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java/com/example/percepto/Phase1Launcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java/com/example/percepto/model/Evaluation1.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java/com/example/percepto/model/Evaluation1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java/com/example/percepto/session/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java/com/example/percepto/session/Session.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/layout/activity_phase1_launcher.xml" beforeDir="false" afterPath="$PROJECT_DIR$/layout/activity_phase1_launcher.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/values/colors.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
   <component name="ProjectId" id="1cIA6k7zphO8sKWr2ks0l7PrEE9" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -33,5 +48,16 @@
       <updated>1590205560150</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

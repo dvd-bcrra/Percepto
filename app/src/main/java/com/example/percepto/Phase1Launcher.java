@@ -8,7 +8,6 @@ import android.view.View;
 public class Phase1Launcher extends AppCompatActivity {
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

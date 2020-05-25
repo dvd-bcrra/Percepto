@@ -1,11 +1,17 @@
 package com.example.percepto.model;
+import com.example.percepto.session.Session;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class Evaluation1 {
+    private Session session;
     private String ID;
     private String CURP;
     private String DATE;
+
+    public Evaluation1(){
+        records = new ArrayList<Record1>();
+    }
 
     public String getID() {
         return ID;
@@ -31,5 +37,17 @@ public class Evaluation1 {
         this.DATE = DATE;
     }
 
-    public List<Record1> records;
+    private ArrayList<Record1> records;
+
+    public void AddRecord(String word, int score){
+        Record1 record1 = new Record1();
+        record1.setEVAL1ID(session.getCurrentParticipant());
+        record1.setWORD(word);
+        record1.setSCORE(score);
+        records.add(record1);
+    }
+
+    public ArrayList<Record1> getRecords(){
+        return records;
+    }
 }
