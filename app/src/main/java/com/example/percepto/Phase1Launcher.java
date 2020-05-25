@@ -2,6 +2,7 @@ package com.example.percepto;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -16,7 +17,8 @@ public class Phase1Launcher extends AppCompatActivity {
 
 
     public void btnPhase1Next_Click(View view) {
-
+        Intent newIntent = new Intent(Phase1Launcher.this,Phase1.class);
+        startActivity(newIntent);
     }
 
     public void btnPhase1Back_Click(View view) {

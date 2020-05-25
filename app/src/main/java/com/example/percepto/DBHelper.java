@@ -6,8 +6,10 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.example.percepto.model.Participant;
-import com.example.percepto.model.User;
+import com.example.percepto.model.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DBHelper extends SQLiteOpenHelper {
     public static final String TAG = DBHelper.class.getSimpleName();
@@ -49,6 +51,11 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String COLUMN_RECORDS1_EVAL1_ID = "eval1_id";           //  ID o clave de la evaluacion 1 (FK)
     private static final String COLUMN_RECORD1_WORD = "word";                    //  Palabra a evaluar
     private static final String COLUMN_RECORD1_SCORE = "score";                  //  calificacion dada
+
+    //TABLA PALABRAS
+    public static final String WORDS_TABLE = "words";                           //  Tabla palabras
+    public static final String COLUMN_WORDS_WORD = "word";                            //  Una palabra
+    public static final String COLUMN_WORDS_LABEL = "label";                          //  El estimulo
 
     private SQLiteDatabase db ;
 
@@ -94,8 +101,17 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(" CREATE TABLE " + RECORDS1_TABLE +
                 "(" + COLUMN_RECORDS1_EVAL1_ID + " TEXT, "
                 + COLUMN_RECORD1_WORD + " TEXT, "
-                + COLUMN_RECORD1_SCORE + " INTEGER " +");");
+                + COLUMN_RECORD1_SCORE + " INTEGER" +");");
 
+        //CREA TABLA PALABRAS
+        db.execSQL(
+                "CREATE TABLE " + WORDS_TABLE + "("
+                + COLUMN_WORDS_WORD + " TEXT, "
+                + COLUMN_WORDS_LABEL + " TEXT" + ");"
+        );
+
+        //INSERTAR PALABRAS
+        insertWords(db);
     }
 
 
@@ -152,5 +168,18 @@ public class DBHelper extends SQLiteOpenHelper {
     public Cursor getUsersData(){
         SQLiteDatabase db = this.getWritableDatabase();
         return db.rawQuery("SELECT * FROM " + USER_TABLE, null);
+    }
+
+    public void insertWords(SQLiteDatabase db){
+        ContentValues values = new ContentValues();
+        ArrayList<Word> words = Words.words();
+
+        for (Word word: words){
+            values.put(COLUMN_WORDS_WORD,word.Word);
+            values.put(COLUMN_WORDS_LABEL,word.Label);
+        }
+
+        db.insert(WORDS_TABLE,null,values);
+        db.close();
     }
 }
