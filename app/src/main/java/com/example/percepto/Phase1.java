@@ -12,7 +12,7 @@ public class Phase1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_phase1);
     }
-
+    
     public void btnScoreNext(View view) {
     }
 }
