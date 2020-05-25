@@ -82,34 +82,63 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/txtWord"
                 android:orientation="horizontal"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="150dp"
                 android:layout_marginBottom="15dp"
                 android:layout_marginStart="30dp"
                 android:layout_marginEnd="30dp"
-                android:padding="1dp">
+                android:padding="5dp"
+                style="?android:buttonBarStyle"
+                android:gravity="center">
 
                 <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight=".20"
+                    android:onClick="btnScoreNext"
+                    android:tag="1"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    style="?android:buttonBarButtonStyle"
                     android:background="@drawable/ic_emoji1"/>
 
                 <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight=".20"
+                    android:onClick="btnScoreNext"
+                    android:tag="2"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    style="?android:buttonBarButtonStyle"
                     android:background="@drawable/ic_emoji2"/>
 
                 <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight=".20"
+                    android:onClick="btnScoreNext"
+                    android:tag="3"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    style="?android:buttonBarButtonStyle"
                     android:background="@drawable/ic_emoji3"/>
 
                 <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:onClick="btnScoreNext"
+                    android:tag="4"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    style="?android:buttonBarButtonStyle"
+                    android:background="@drawable/ic_emoji4"/>
 
+                <Button
+                    android:onClick="btnScoreNext"
+                    android:tag="5"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    style="?android:buttonBarButtonStyle"
+                    android:background="@drawable/ic_emoji5"/>
             </LinearLayout>
 
         </RelativeLayout>
