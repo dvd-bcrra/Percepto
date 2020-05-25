@@ -1,56 +1,10 @@
 package com.example.percepto.model;
 
-import java.util.ArrayList;
 
-public class Words {
-    public static ArrayList<Word> words(){
-        ArrayList<Word> temp = new ArrayList<>();
+import java.util.List;
 
-        //ALEGRIA
-        temp.add(new Word("Regalo","Alegria"));
-        temp.add(new Word("Regalo","Alegria"));
-        temp.add(new Word("Regalo","Alegria"));
-        temp.add(new Word("Regalo","Alegria"));
-        temp.add(new Word("Regalo","Alegria"));
-        temp.add(new Word("Regalo","Alegria"));
-        temp.add(new Word("Regalo","Alegria"));
-        temp.add(new Word("Regalo","Alegria"));
-        temp.add(new Word("Regalo","Alegria"));
-        temp.add(new Word("Regalo","Alegria"));
-        temp.add(new Word("Regalo","Alegria"));
-        temp.add(new Word("Regalo","Alegria"));
-        temp.add(new Word("Regalo","Alegria"));
-        temp.add(new Word("Regalo","Alegria"));
-        temp.add(new Word("Regalo","Alegria"));
-        temp.add(new Word("Regalo","Alegria"));
-        temp.add(new Word("Regalo","Alegria"));
-        temp.add(new Word("Regalo","Alegria"));
-        temp.add(new Word("Regalo","Alegria"));
-        temp.add(new Word("Regalo","Alegria"));
-        temp.add(new Word("Regalo","Alegria"));
-        temp.add(new Word("Regalo","Alegria"));
-        temp.add(new Word("Regalo","Alegria"));
-        temp.add(new Word("Regalo","Alegria"));
-        temp.add(new Word("Regalo","Alegria"));
-        temp.add(new Word("Regalo","Alegria"));
-        temp.add(new Word("Regalo","Alegria"));
-        temp.add(new Word("Regalo","Alegria"));
-        temp.add(new Word("Regalo","Alegria"));
-        temp.add(new Word("Regalo","Alegria"));
-        temp.add(new Word("Regalo","Alegria"));
-        temp.add(new Word("Regalo","Alegria"));
-        temp.add(new Word("Regalo","Alegria"));
-        temp.add(new Word("Regalo","Alegria"));
-        temp.add(new Word("Regalo","Alegria"));
-        temp.add(new Word("Regalo","Alegria"));
-        temp.add(new Word("Regalo","Alegria"));
-        temp.add(new Word("Regalo","Alegria"));
-        temp.add(new Word("Regalo","Alegria"));
-        temp.add(new Word("Regalo","Alegria"));
-
-
-
-        return temp;
-    }
+public class Words
+{
+    public List<Word> palabras;
 }
 

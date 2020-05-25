@@ -1,0 +1,484 @@
+{
+  "Palabras": [
+    {
+      "Palabra": "Regalo",
+      "Estimulo": "Alegria"
+    },
+    {
+      "Palabra": "Playa",
+      "Estimulo": "Alegria"
+    },
+    {
+      "Palabra": "Navidad",
+      "Estimulo": "Alegria"
+    },
+    {
+      "Palabra": "Mascota",
+      "Estimulo": "Alegria"
+    },
+    {
+      "Palabra": "Futbol",
+      "Estimulo": "Alegria"
+    },
+    {
+      "Palabra": "Fiesta",
+      "Estimulo": "Alegria"
+    },
+    {
+      "Palabra": "Dulce",
+      "Estimulo": "Alegria"
+    },
+    {
+      "Palabra": "Dormir",
+      "Estimulo": "Alegria"
+    },
+    {
+      "Palabra": "Diversión",
+      "Estimulo": "Alegria"
+    },
+    {
+      "Palabra": "Dibujar",
+      "Estimulo": "Alegria"
+    },
+    {
+      "Palabra": "Deporte",
+      "Estimulo": "Alegria"
+    },
+    {
+      "Palabra": "Cumpleaños",
+      "Estimulo": "Alegria"
+    },
+    {
+      "Palabra": "Alberca",
+      "Estimulo": "Alegria"
+    },
+    {
+      "Palabra": "Perro",
+      "Estimulo": "Alegria"
+    },
+    {
+      "Palabra": "Hermano",
+      "Estimulo": "Alegria"
+    },
+    {
+      "Palabra": "Videojuego",
+      "Estimulo": "Alegria"
+    },
+    {
+      "Palabra": "Viajar",
+      "Estimulo": "Alegria"
+    },
+    {
+      "Palabra": "Película",
+      "Estimulo": "Alegria"
+    },
+    {
+      "Palabra": "Naturaleza",
+      "Estimulo": "Alegria"
+    },
+    {
+      "Palabra": "Música",
+      "Estimulo": "Alegria"
+    },
+    {
+      "Palabra": "Logro",
+      "Estimulo": "Alegria"
+    },
+    {
+      "Palabra": "Libertad",
+      "Estimulo": "Alegria"
+    },
+    {
+      "Palabra": "Familia",
+      "Estimulo": "Alegria"
+    },
+    {
+      "Palabra": "Comer",
+      "Estimulo": "Alegria"
+    },
+    {
+      "Palabra": "Cine",
+      "Estimulo": "Alegria"
+    },
+    {
+      "Palabra": "Amigo",
+      "Estimulo": "Alegria"
+    },
+    {
+      "Palabra": "Abuelo",
+      "Estimulo": "Alegria"
+    },
+    {
+      "Palabra": "Pasear",
+      "Estimulo": "Alegria"
+    },
+    {
+      "Palabra": "Felicidad",
+      "Estimulo": "Alegria"
+    },
+    {
+      "Palabra": "Viaje",
+      "Estimulo": "Alegria"
+    },
+    {
+      "Palabra": "Televisión",
+      "Estimulo": "Alegria"
+    },
+    {
+      "Palabra": "Salir",
+      "Estimulo": "Alegria"
+    },
+    {
+      "Palabra": "Primo",
+      "Estimulo": "Alegria"
+    },
+    {
+      "Palabra": "Platicar",
+      "Estimulo": "Alegria"
+    },
+    {
+      "Palabra": "Parque",
+      "Estimulo": "Alegria"
+    },
+    {
+      "Palabra": "Jugar",
+      "Estimulo": "Alegria"
+    },
+    {
+      "Palabra": "Juego",
+      "Estimulo": "Alegria"
+    },
+    {
+      "Palabra": "Hermana",
+      "Estimulo": "Alegria"
+    },
+    {
+      "Palabra": "Flor",
+      "Estimulo": "Alegria"
+    },
+    {
+      "Palabra": "Escuela",
+      "Estimulo": "Alegria"
+    },
+    {
+      "Palabra": "Tristeza",
+      "Estimulo": "Miedo"
+    },
+    {
+      "Palabra": "Terror",
+      "Estimulo": "Miedo"
+    },
+    {
+      "Palabra": "Cucarachas",
+      "Estimulo": "Miedo"
+    },
+    {
+      "Palabra": "Caer",
+      "Estimulo": "Miedo"
+    },
+    {
+      "Palabra": "Tsunami",
+      "Estimulo": "Miedo"
+    },
+    {
+      "Palabra": "Tiburón",
+      "Estimulo": "Miedo"
+    },
+    {
+      "Palabra": "Temor",
+      "Estimulo": "Miedo"
+    },
+    {
+      "Palabra": "Serpientes",
+      "Estimulo": "Miedo"
+    },
+    {
+      "Palabra": "Regaño",
+      "Estimulo": "Miedo"
+    },
+    {
+      "Palabra": "Rechazo",
+      "Estimulo": "Miedo"
+    },
+    {
+      "Palabra": "Pegar",
+      "Estimulo": "Miedo"
+    },
+    {
+      "Palabra": "Muerte",
+      "Estimulo": "Miedo"
+    },
+    {
+      "Palabra": "Morir",
+      "Estimulo": "Miedo"
+    },
+    {
+      "Palabra": "Miedo",
+      "Estimulo": "Miedo"
+    },
+    {
+      "Palabra": "Grosería",
+      "Estimulo": "Miedo"
+    },
+    {
+      "Palabra": "Grito",
+      "Estimulo": "Miedo"
+    },
+    {
+      "Palabra": "Fuego",
+      "Estimulo": "Miedo"
+    },
+    {
+      "Palabra": "Enfermedad",
+      "Estimulo": "Miedo"
+    },
+    {
+      "Palabra": "Desastre",
+      "Estimulo": "Miedo"
+    },
+    {
+      "Palabra": "Choque",
+      "Estimulo": "Miedo"
+    },
+    {
+      "Palabra": "Bullying",
+      "Estimulo": "Miedo"
+    },
+    {
+      "Palabra": "Arañas",
+      "Estimulo": "Miedo"
+    },
+    {
+      "Palabra": "Alacrán",
+      "Estimulo": "Miedo"
+    },
+    {
+      "Palabra": "Enojo",
+      "Estimulo": "Miedo"
+    },
+    {
+      "Palabra": "Secuestro",
+      "Estimulo": "Miedo"
+    },
+    {
+      "Palabra": "Ratas",
+      "Estimulo": "Miedo"
+    },
+    {
+      "Palabra": "Pesadilla",
+      "Estimulo": "Miedo"
+    },
+    {
+      "Palabra": "Pérdida",
+      "Estimulo": "Miedo"
+    },
+    {
+      "Palabra": "Pelea",
+      "Estimulo": "Miedo"
+    },
+    {
+      "Palabra": "Golpe",
+      "Estimulo": "Miedo"
+    },
+    {
+      "Palabra": "Accidente",
+      "Estimulo": "Miedo"
+    },
+    {
+      "Palabra": "Fracaso",
+      "Estimulo": "Miedo"
+    },
+    {
+      "Palabra": "Robos",
+      "Estimulo": "Miedo"
+    },
+    {
+      "Palabra": "Reprobar",
+      "Estimulo": "Miedo"
+    },
+    {
+      "Palabra": "Asalto",
+      "Estimulo": "Miedo"
+    },
+    {
+      "Palabra": "Ahogar",
+      "Estimulo": "Miedo"
+    },
+    {
+      "Palabra": "Asustar ",
+      "Estimulo": "Miedo"
+    },
+    {
+      "Palabra": "Bicho ",
+      "Estimulo": "Miedo"
+    },
+    {
+      "Palabra": "Desconocido ",
+      "Estimulo": "Miedo"
+    },
+    {
+      "Palabra": "Temblor ",
+      "Estimulo": "Miedo"
+    },
+    {
+      "Palabra": "Calcetín",
+      "Estimulo": "Neutro"
+    },
+    {
+      "Palabra": "Borrador",
+      "Estimulo": "Neutro"
+    },
+    {
+      "Palabra": "Zapato",
+      "Estimulo": "Neutro"
+    },
+    {
+      "Palabra": "Vaso",
+      "Estimulo": "Neutro"
+    },
+    {
+      "Palabra": "Trompeta",
+      "Estimulo": "Neutro"
+    },
+    {
+      "Palabra": "Transporte",
+      "Estimulo": "Neutro"
+    },
+    {
+      "Palabra": "Tornillo",
+      "Estimulo": "Neutro"
+    },
+    {
+      "Palabra": "Tierra",
+      "Estimulo": "Neutro"
+    },
+    {
+      "Palabra": "Tenedor",
+      "Estimulo": "Neutro"
+    },
+    {
+      "Palabra": "Taza",
+      "Estimulo": "Neutro"
+    },
+    {
+      "Palabra": "Silbato",
+      "Estimulo": "Neutro"
+    },
+    {
+      "Palabra": "Servilleta",
+      "Estimulo": "Neutro"
+    },
+    {
+      "Palabra": "Puerta",
+      "Estimulo": "Neutro"
+    },
+    {
+      "Palabra": "Plumón",
+      "Estimulo": "Neutro"
+    },
+    {
+      "Palabra": "Plato",
+      "Estimulo": "Neutro"
+    },
+    {
+      "Palabra": "Pierna",
+      "Estimulo": "Neutro"
+    },
+    {
+      "Palabra": "Pala",
+      "Estimulo": "Neutro"
+    },
+    {
+      "Palabra": "Nariz",
+      "Estimulo": "Neutro"
+    },
+    {
+      "Palabra": "Mantel",
+      "Estimulo": "Neutro"
+    },
+    {
+      "Palabra": "Mano",
+      "Estimulo": "Neutro"
+    },
+    {
+      "Palabra": "Llave",
+      "Estimulo": "Neutro"
+    },
+    {
+      "Palabra": "Jarra",
+      "Estimulo": "Neutro"
+    },
+    {
+      "Palabra": "Hombro",
+      "Estimulo": "Neutro"
+    },
+    {
+      "Palabra": "Hilo",
+      "Estimulo": "Neutro"
+    },
+    {
+      "Palabra": "Guante",
+      "Estimulo": "Neutro"
+    },
+    {
+      "Palabra": "Edad",
+      "Estimulo": "Neutro"
+    },
+    {
+      "Palabra": "Diente",
+      "Estimulo": "Neutro"
+    },
+    {
+      "Palabra": "Cuello",
+      "Estimulo": "Neutro"
+    },
+    {
+      "Palabra": "Cuchara",
+      "Estimulo": "Neutro"
+    },
+    {
+      "Palabra": "Cubeta",
+      "Estimulo": "Neutro"
+    },
+    {
+      "Palabra": "Cuaderno",
+      "Estimulo": "Neutro"
+    },
+    {
+      "Palabra": "Codo",
+      "Estimulo": "Neutro"
+    },
+    {
+      "Palabra": "Cielo",
+      "Estimulo": "Neutro"
+    },
+    {
+      "Palabra": "Ceja",
+      "Estimulo": "Neutro"
+    },
+    {
+      "Palabra": "Cartera",
+      "Estimulo": "Neutro"
+    },
+    {
+      "Palabra": "Brazo",
+      "Estimulo": "Neutro"
+    },
+    {
+      "Palabra": "Bote",
+      "Estimulo": "Neutro"
+    },
+    {
+      "Palabra": "Boca",
+      "Estimulo": "Neutro"
+    },
+    {
+      "Palabra": "Anillo",
+      "Estimulo": "Neutro"
+    },
+    {
+      "Palabra": "Clavo",
+      "Estimulo": "Neutro"
+    }
+  ]
+}
