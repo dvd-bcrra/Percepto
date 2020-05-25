@@ -57,13 +57,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                String[] datos = new String[]{
+                        username1.getText().toString(),
+                        pass.getText().toString()
+                };
+
                 cursor = db.rawQuery("SELECT * FROM " + DBHelper.USER_TABLE
                                 + " WHERE " + DBHelper.COLUMN_USER_USERNAME + " =? AND "
-                                + DBHelper.COLUMN_USER_PASSWORD + " =?",
-                                new String[] {
-                                        username1.getText().toString(),
-                                        pass.getText().toString()
-                                });
+                                + DBHelper.COLUMN_USER_PASSWORD + " =?",datos);
+
 
                 if(username1.getText().toString().equals("")|| pass.getText().toString().equals(""))
                 {
@@ -76,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                         cursor.moveToFirst();
 
                         Toast.makeText(MainActivity.this, "Logged In succesfully!", Toast.LENGTH_LONG).show();
-                        Intent intent = new Intent(MainActivity.this, Register.class);
+                        Intent intent = new Intent(MainActivity.this, Phase1.class);
                         startActivity(intent);
 
                     } else {
@@ -106,6 +108,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void onBackPressed()
     {
+
         new AlertDialog.Builder(this).setIcon(android.R.drawable.ic_dialog_alert).setTitle("Exit")
                 .setMessage("Are you sure you want to exit?")
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {

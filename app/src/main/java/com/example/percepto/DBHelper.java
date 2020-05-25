@@ -116,7 +116,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
         values.put(COLUMN_USER_NAME, user.getNAME());
-        values.put(COLUMN_USER_USERNAME, user.getPASSWORD());
+        values.put(COLUMN_USER_USERNAME, user.getUSERNAME());
         values.put(COLUMN_USER_PASSWORD, user.getPASSWORD());
         values.put(COLUMN_USER_ISADMIN,user.isADMIN());
 
