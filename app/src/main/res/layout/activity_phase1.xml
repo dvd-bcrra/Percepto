@@ -23,8 +23,8 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="0"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:layout_marginTop="10dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
@@ -32,117 +32,145 @@
         app:cardCornerRadius="24dp"
         app:cardBackgroundColor="@color/cardview_light_background">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/txtSelecciona"
-                android:text="Selecciona una opcion"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginEnd="30dp"
-                android:textStyle="bold"
-                android:textColor="@color/DarkPurple"
-                android:layout_marginBottom="15dp"/>
+                android:layout_weight="0">
 
-            <TextView
-                android:id="@+id/txtContador"
-                android:text="contador"
-                android:textAlignment="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/txtSelecciona"
-                android:layout_marginStart="30dp"
-                android:layout_marginEnd="30dp"
-                android:textStyle="bold"
-                android:padding="30dp"/>
+                <TextView
+                    android:id="@+id/txtSelecciona"
+                    android:text="Selecciona una opcion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/DarkPurple"
+                    android:layout_marginBottom="15dp"/>
 
-            <TextView
-                android:id="@+id/txtWord"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="ALEGRIA"
-                android:layout_below="@id/txtContador"
-                android:layout_marginTop="15dp"
-                android:textColor="@color/DarkPurple"
-                android:textAlignment="center"
-                android:padding="20dp"
-                android:textSize="28sp"
-                android:fontFamily="monospace"
-                android:textStyle="bold"
-                android:background="@drawable/light_purple_background"
-                android:layout_marginStart="30dp"
-                android:layout_marginEnd="30dp"/>
+                <TextView
+                    android:id="@+id/txtContador"
+                    android:text="contador"
+                    android:textAlignment="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtSelecciona"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:textStyle="bold"
+                    android:padding="30dp"/>
+
+                <TextView
+                    android:id="@+id/txtWord"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ALEGRIA"
+                    android:layout_below="@id/txtContador"
+                    android:layout_marginTop="15dp"
+                    android:textColor="@color/DarkPurple"
+                    android:textAlignment="center"
+                    android:padding="20dp"
+                    android:textSize="28sp"
+                    android:fontFamily="monospace"
+                    android:textStyle="bold"
+                    android:background="@drawable/light_purple_background"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"/>
+            </RelativeLayout>
 
             <LinearLayout
                 android:id="@+id/llreacciones"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/txtWord"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:orientation="horizontal"
-                android:layout_marginTop="150dp"
                 android:layout_marginBottom="15dp"
                 android:layout_marginStart="30dp"
                 android:layout_marginEnd="30dp"
                 android:padding="5dp"
                 style="?android:buttonBarStyle"
-                android:gravity="center">
+                android:gravity="center|bottom">
 
-                <Button
+                <ImageButton
                     android:onClick="btnScoreNext"
                     android:tag="1"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="6dp"
-                    android:layout_marginEnd="6dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".20"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerInside"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:padding="0dp"
                     style="?android:buttonBarButtonStyle"
-                    android:background="@drawable/ic_emoji1"/>
+                    android:src="@drawable/ic_emoji1"/>
 
-                <Button
+                <ImageButton
                     android:onClick="btnScoreNext"
                     android:tag="2"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="6dp"
-                    android:layout_marginEnd="6dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".20"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerInside"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:padding="0dp"
                     style="?android:buttonBarButtonStyle"
-                    android:background="@drawable/ic_emoji2"/>
+                    android:src="@drawable/ic_emoji2"/>
 
-                <Button
+                <ImageButton
                     android:onClick="btnScoreNext"
                     android:tag="3"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="6dp"
-                    android:layout_marginEnd="6dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".20"
+                    android:adjustViewBounds="true"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:scaleType="centerInside"
+                    android:padding="0dp"
                     style="?android:buttonBarButtonStyle"
-                    android:background="@drawable/ic_emoji3"/>
+                    android:src="@drawable/ic_emoji3"/>
 
-                <Button
+                <ImageButton
                     android:onClick="btnScoreNext"
                     android:tag="4"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="6dp"
-                    android:layout_marginEnd="6dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".20"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerInside"
+                    android:padding="0dp"
                     style="?android:buttonBarButtonStyle"
-                    android:background="@drawable/ic_emoji4"/>
+                    android:src="@drawable/ic_emoji4"/>
 
-                <Button
+                <ImageButton
                     android:onClick="btnScoreNext"
                     android:tag="5"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="6dp"
-                    android:layout_marginEnd="6dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".20"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerInside"
+                    android:padding="0dp"
                     style="?android:buttonBarButtonStyle"
-                    android:background="@drawable/ic_emoji5"/>
+                    android:src="@drawable/ic_emoji5"/>
             </LinearLayout>
 
-        </RelativeLayout>
+        </LinearLayout>
+
+
     </androidx.cardview.widget.CardView>
 
 </LinearLayout>
