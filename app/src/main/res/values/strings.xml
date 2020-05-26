@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Percepto</string>
     <string name="Phase1Description">
-        Indica la familiaridad de la palabra que veras.
-        Selecciona 1 si la palabra es poco familiar o 5 si la palabra es muy familiar.
+        Bien hecho, lo lograste.
+        Para volver al inicio pulse el boton de regresar.
     </string>
 </resources>
