@@ -18,7 +18,6 @@ public class Test_completed extends AppCompatActivity {
         startActivity(newIntent);
 
 
-        btnCompleted_click
-                btnReportSkip_Click
+
     }
 }
