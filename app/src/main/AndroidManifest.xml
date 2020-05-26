@@ -9,16 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Phase1"></activity>
-        <activity android:name=".Phase1Launcher" />
-        <activity android:name=".Register" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".Test_completed"></activity>
+        <activity android:name=".DarAltas"></activity>
+        <activity android:name=".Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Phase1" />
+        <activity android:name=".Phase1Launcher" />
+        <activity android:name=".Register" />
+        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>
