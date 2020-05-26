@@ -7,7 +7,7 @@ import android.preference.PreferenceManager;
 public class Session {
 
     private SharedPreferences prefs;
-
+//
     public Session(Context cntx) {
         prefs = PreferenceManager.getDefaultSharedPreferences(cntx);
     }
