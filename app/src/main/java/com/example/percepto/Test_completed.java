@@ -16,5 +16,9 @@ public class Test_completed extends AppCompatActivity {
     public void btnCompletedNext_Click(View view) {
         Intent newIntent = new Intent(Test_completed.this,Phase1.class);
         startActivity(newIntent);
+
+
+        btnCompleted_click
+                btnReportSkip_Click
     }
 }
