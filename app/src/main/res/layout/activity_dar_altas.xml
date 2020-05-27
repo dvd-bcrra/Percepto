@@ -1,10 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:gravity="center"
+    android:padding="32dp"
+    android:background="@color/Background"
+    android:orientation="vertical"
     tools:context=".DarAltas">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/btnRegisteradminNext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/purple_custom_rounded_corners"
+        android:onClick="btnRegisterAdmin_Click"
+        android:tag="Admine"
+        android:text="Administrador"
+        android:textColor="#ffffff"
+        />
+
+    <Button
+        android:id="@+id/btnRegisterfaciNext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/purple_custom_rounded_corners"
+        android:onClick="btnRegisterfac_Click"
+        android:tag="facili"
+        android:text="Facilitador"
+        android:textColor="#ffffff"
+        />
+
+    <Button
+        android:id="@+id/btnRegisterNext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/purple_custom_rounded_corners"
+        android:onClick="btnRegisterUser_Click"
+        android:tag="usser"
+        android:text="Usuario"
+        android:textColor="#ffffff"
+      />
+
+
+</LinearLayout>
