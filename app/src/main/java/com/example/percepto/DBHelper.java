@@ -118,7 +118,7 @@ public class DBHelper extends SQLiteOpenHelper {
         values.put(COLUMN_USER_NAME, user.getNAME());
         values.put(COLUMN_USER_USERNAME, user.getUSERNAME());
         values.put(COLUMN_USER_PASSWORD, user.getPASSWORD());
-        values.put(COLUMN_USER_ISADMIN,user.isADMIN());
+        values.put(COLUMN_USER_ISADMIN, user.isADMIN());
 
         db.insert(USER_TABLE, null, values);
         db.close();
@@ -130,21 +130,21 @@ public class DBHelper extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
 
-        values.put(COLUMN_PARTICIPANT_CURP,participant.getCURP());
-        values.put(COLUMN_PARTICIPANT_FIRSTNAME,participant.getFIRSTNAME());
-        values.put(COLUMN_PARTICIPANT_LASTNAME,participant.getLASTNAME());
-        values.put(COLUMN_PARTICIPANT_BIRTHDAY,participant.getBIRTHDAY());
-        values.put(COLUMN_PARTICIPANT_AGE,participant.getAGE());
-        values.put(COLUMN_PARTICIPANT_GROUP,participant.getGROUP());
-        values.put(COLUMN_PARTICIPANT_TIME,participant.getTIME());
-        values.put(COLUMN_PARTICIPANT_LEVEL,participant.getLEVEL());
-        values.put(COLUMN_PARTICIPANT_IQ,participant.getIQ());
-        values.put(COLUMN_PARTICIPANT_TEPT,participant.getTEPT());
-        values.put(COLUMN_PARTICIPANT_REEXP,participant.getREEXP());
-        values.put(COLUMN_PARTICIPANT_AVOID,participant.getAVOID());
-        values.put(COLUMN_PARTICIPANT_ACTIVE,participant.getACTIVE());
-        values.put(COLUMN_PARTICIPANT_ANX,participant.getANX());
-        values.put(COLUMN_PARTICIPANT_DPRS,participant.getDPRS());
+        values.put(COLUMN_PARTICIPANT_CURP, participant.getCURP());
+        values.put(COLUMN_PARTICIPANT_FIRSTNAME, participant.getFIRSTNAME());
+        values.put(COLUMN_PARTICIPANT_LASTNAME, participant.getLASTNAME());
+        values.put(COLUMN_PARTICIPANT_BIRTHDAY, participant.getBIRTHDAY());
+        values.put(COLUMN_PARTICIPANT_AGE, participant.getAGE());
+        values.put(COLUMN_PARTICIPANT_GROUP, participant.getGROUP());
+        values.put(COLUMN_PARTICIPANT_TIME, participant.getTIME());
+        values.put(COLUMN_PARTICIPANT_LEVEL, participant.getLEVEL());
+        values.put(COLUMN_PARTICIPANT_IQ, participant.getIQ());
+        values.put(COLUMN_PARTICIPANT_TEPT, participant.getTEPT());
+        values.put(COLUMN_PARTICIPANT_REEXP, participant.getREEXP());
+        values.put(COLUMN_PARTICIPANT_AVOID, participant.getAVOID());
+        values.put(COLUMN_PARTICIPANT_ACTIVE, participant.getACTIVE());
+        values.put(COLUMN_PARTICIPANT_ANX, participant.getANX());
+        values.put(COLUMN_PARTICIPANT_DPRS, participant.getDPRS());
 
         db.insert(PARTICIPANT_TABLE,null,values);
         db.close();

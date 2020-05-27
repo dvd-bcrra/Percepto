@@ -18,6 +18,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.percepto.Words.JsonWords;
+import com.example.percepto.model.User;
+import com.example.percepto.session.Session;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,11 +31,13 @@ public class MainActivity extends AppCompatActivity {
     DBHelper dbHelper;
     SQLiteDatabase db;
     JsonWords jw;
+    Session session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        session = new Session(this);
         dbHelper = new DBHelper(this);
         db = dbHelper.getReadableDatabase();
         jw = JsonWords.getInstance(this);
@@ -80,11 +84,18 @@ public class MainActivity extends AppCompatActivity {
                 if (cursor != null) {
                     if (cursor.getCount() > 0) {
                         cursor.moveToFirst();
+                        User user = new User();
 
-                        Toast.makeText(MainActivity.this, "Logged In succesfully!", Toast.LENGTH_LONG).show();
+                        user.setNAME(cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_USER_NAME)));
+                        user.setUSERNAME(cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_USER_USERNAME)));
+                        user.setPASSWORD(cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_USER_PASSWORD)));
+                        user.setADMIN(Boolean.parseBoolean(cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_USER_ISADMIN))));
 
-                        /* MOMENTANEAMENTE ENVIANDO A FASE 1 PARA PRUEBAS */
-                        Intent intent = new Intent(MainActivity.this, Phase1Launcher.class);
+                        session.setUser(user);
+
+                        Toast.makeText(MainActivity.this, "Bienvenido " + user.getNAME(), Toast.LENGTH_LONG).show();
+
+                        Intent intent = new Intent(MainActivity.this, DarAltas.class);
                         startActivity(intent);
 
                     } else {

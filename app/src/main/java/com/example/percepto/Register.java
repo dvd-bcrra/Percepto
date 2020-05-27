@@ -17,6 +17,8 @@ import android.widget.Toast;
 
 import com.example.percepto.model.User;
 
+import java.util.Objects;
+
 public class Register extends AppCompatActivity {
     EditText name, user1, pass, cnfrmpass;
     Button signin;
@@ -25,6 +27,9 @@ public class Register extends AppCompatActivity {
     SQLiteDatabase db;
     CheckBox rshow;
     DBHelper dbHelper;
+
+    Boolean is_admin;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +43,9 @@ public class Register extends AppCompatActivity {
         rshow = (CheckBox) findViewById(R.id.rshowPass);
         signin = (Button) findViewById(R.id.signin);
         rback = (ImageView) findViewById(R.id.rback);
+
+        is_admin = Objects.requireNonNull(getIntent().getExtras()).getBoolean("IS_ADMIN");
+
 
         showPass();
 
@@ -73,11 +81,16 @@ public class Register extends AppCompatActivity {
             newUser.setNAME(name.getText().toString());
             newUser.setUSERNAME(user1.getText().toString());
             newUser.setPASSWORD(pass.getText().toString());
-            newUser.setADMIN(true);
+            newUser.setADMIN(is_admin);
 
             dbHelper.AddUser(newUser);
 
-            Toast.makeText(Register.this, "Data Inserted", Toast.LENGTH_LONG).show();
+            if(is_admin){
+                Toast.makeText(Register.this, "Registrado como administrador", Toast.LENGTH_LONG).show();
+            }else{
+                Toast.makeText(Register.this, "Registrado como facilitador", Toast.LENGTH_LONG).show();
+            }
+
 
             Intent intent = new Intent(Register.this, MainActivity.class);
             startActivity(intent);
