@@ -3,6 +3,7 @@ package com.example.percepto;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -77,8 +78,13 @@ public class Phase1 extends AppCompatActivity {
     }
 
     public void CargarPregunta(){
-        txtNumPregunta.setText(String.format("Pregunta %d",numPregunta));
-        txtPalabra.setText(palabras.get(numPregunta));
+        if (numPregunta == 20){
+            Intent TestCompleted = new Intent(Phase1.this,Test_completed.class);
+            startActivity(TestCompleted);
+        }else{
+            txtNumPregunta.setText(String.format("Pregunta %d",numPregunta + 1));
+            txtPalabra.setText(palabras.get(numPregunta));
+        }
     }
 
     public ArrayList<String> Palabras(){
@@ -98,6 +104,10 @@ public class Phase1 extends AppCompatActivity {
         for(int i = 0; i < 20; i++){
             String palabraNeutra = words.PalabrasNeutras.get(i);
             temp.add(palabraNeutra);
+        }
+
+        for (int i = 0; i < 40; i++){
+            temp.remove(0);
         }
 
         Shuffle(temp);

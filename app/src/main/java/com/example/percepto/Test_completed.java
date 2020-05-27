@@ -27,6 +27,5 @@ public class Test_completed extends AppCompatActivity {
         startActivity(newIntent2);
 
 
-
     }
 }

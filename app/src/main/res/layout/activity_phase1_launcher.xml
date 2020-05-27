@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:orientation="vertical"
     android:background="@color/Background"
     tools:context=".Phase1Launcher">
@@ -28,12 +27,12 @@
                 android:id="@+id/txtFasedeestudio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
+                android:padding="5dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginEnd="15dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="15dp"
-                android:text="Fase de \nEstudio"
+                android:text="Fase de Estudio"
                 android:textSize="25sp"
                 android:fontFamily="sans-serif-black"/>
 
@@ -41,10 +40,10 @@
                 android:id="@+id/imgFase1"
                 android:layout_below="@+id/txtFasedeestudio"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginEnd="15dp"
-                android:adjustViewBounds="false"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="70dp"
+                android:layout_marginEnd="70dp"
+                android:adjustViewBounds="true"
                 android:src="@drawable/quiz"/>
 
             <TextView
@@ -93,7 +92,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
         android:layout_weight="1"
         android:gravity="center|bottom"
         android:orientation="vertical"
@@ -112,15 +111,5 @@
             android:onClick="btnPhase1Back_Click"
             android:background="@drawable/white_custom_rounded_corners"/>
 
-        <Button
-            android:id="@+id/btnPhase1Skip"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:background="#00ffffff"
-            android:textColor="#fff"
-            android:onClick="btnPhase1Skip_Click"
-            android:text="Saltar"/>
     </LinearLayout>
 </LinearLayout>
