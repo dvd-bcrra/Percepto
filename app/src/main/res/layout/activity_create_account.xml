@@ -1,9 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Create_account">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
 
-</RelativeLayout>
+        <TextView
+            android:text="Agregar Participante"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtAdduser" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="Nombre*"
+            android:ems="10"
+            android:id="@+id/editNombre" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="Apellido*"
+            android:ems="10"
+            android:id="@+id/editApellido" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="Edad*"
+            android:ems="10"
+            android:id="@+id/editDate" />
+        <TextView
+            android:text="Agregar GRUPO"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtAddGroup" />
+        <Spinner
+            android:id="@+id/spAnimals"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:entries="@array/group" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="meses en la institucion"
+            android:ems="10"
+            android:id="@+id/editTime"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nivel educativo"
+            android:ems="10"
+            android:id="@+id/editLevelEdu"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="CI"
+            android:ems="10"
+            android:id="@+id/editCI"/>
+        <TextView
+            android:text="Trastorno por estres postraumatico"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtTitle_estres" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textShortMessage"
+            android:hint="Reexperimentacion"
+            android:ems="10"
+            android:id="@+id/editRexperi"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textShortMessage"
+            android:hint="Evaluacion"
+            android:ems="10"
+            android:id="@+id/editEvaluation"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textShortMessage"
+            android:hint="Activacion"
+            android:ems="10"
+            android:id="@+id/editActivation"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textShortMessage"
+            android:hint="Ansiedad"
+            android:ems="10"
+            android:id="@+id/editAnsiety"/>
+        <Button
+            android:id="@+id/createa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25sp"
+            android:background="@color/Background"
+            android:onClick="createaccount"
+            android:clickable="true"
+            android:text="Registrarse"
+            android:textColor="#fff" />
+
+
+
+
+    </LinearLayout>
+
+</ScrollView>

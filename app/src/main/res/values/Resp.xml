@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="resp1">
+        <item>Ninguna</item>
+        <item>Si</item>
+        <item>No</item>
+    </string-array>
+
+<string-array name="resp2">
+    <item>Ninguna</item>
+    <item>Si</item>
+    <item>No</item>
+</string-array>
+
+<string-array name="resp3">
+    <item>Ninguna</item>
+    <item>Si</item>
+    <item>No</item>
+</string-array>
+</resources>

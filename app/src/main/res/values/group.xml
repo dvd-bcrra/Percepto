@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="group">
+        <item>Ninguna</item>
+        <item>TEPT-ASI</item>
+        <item>CH Control Hogar</item>
+        <item>CF Contol Familia</item>
+    </string-array>
+</resources>
