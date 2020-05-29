@@ -23,7 +23,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COLUMN_USER_ISADMIN = "isadmin";
 
     //TABLA PARTICIPANTES
-    private static final String PARTICIPANT_TABLE = "participants";              //  participantes
+    public static final String PARTICIPANT_TABLE = "participants";              //  participantes
     private static final String COLUMN_PARTICIPANT_CURP = "curp";                //  CURP - (PK)
     private static final String COLUMN_PARTICIPANT_FIRSTNAME = "firstname";      //  nombre
     private static final String COLUMN_PARTICIPANT_LASTNAME = "lastname";        //  apellido

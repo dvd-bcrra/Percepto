@@ -23,7 +23,7 @@ public class Session {
 
     public User getUser() {
         User user = new User();
-        user.setNAME(prefs.getString("user",""));
+        user.setNAME(prefs.getString("name",""));
         user.setUSERNAME(prefs.getString("username",""));
         user.setPASSWORD(prefs.getString("password",""));
         user.setADMIN(prefs.getBoolean("admin",false));

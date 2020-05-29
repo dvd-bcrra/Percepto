@@ -30,6 +30,8 @@ public class DarAltas extends AppCompatActivity {
 
         if (user == null){
             btnRegisterUser.setVisibility(View.INVISIBLE);
+        }else{
+            btnRegisterUser.setVisibility(View.VISIBLE);
         }
     }
 

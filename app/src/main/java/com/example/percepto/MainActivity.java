@@ -65,45 +65,47 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String[] datos = new String[]{
-                        username1.getText().toString(),
-                        pass.getText().toString()
-                };
+            String[] datos = new String[]{
+                    username1.getText().toString(),
+                    pass.getText().toString()
+            };
 
-                cursor = db.rawQuery("SELECT * FROM " + DBHelper.USER_TABLE
-                                + " WHERE " + DBHelper.COLUMN_USER_USERNAME + " =? AND "
-                                + DBHelper.COLUMN_USER_PASSWORD + " =?",datos);
+            cursor = db.rawQuery("SELECT * FROM " + DBHelper.USER_TABLE
+                            + " WHERE " + DBHelper.COLUMN_USER_USERNAME + " =? AND "
+                            + DBHelper.COLUMN_USER_PASSWORD + " =?",datos);
 
 
-                if(username1.getText().toString().equals("")|| pass.getText().toString().equals(""))
-                {
-                    Toast.makeText(getApplicationContext(), "Username and Password can't be empty", Toast.LENGTH_LONG).show();
-                    return;
+            if(username1.getText().toString().equals("")|| pass.getText().toString().equals(""))
+            {
+                Toast.makeText(getApplicationContext(), "Username and Password can't be empty", Toast.LENGTH_LONG).show();
+                return;
+            }
+
+            if (cursor != null) {
+                if (cursor.getCount() > 0) {
+                    cursor.moveToFirst();
+                    User user = new User();
+
+                    user.setNAME(cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_USER_NAME)));
+                    user.setUSERNAME(cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_USER_USERNAME)));
+                    user.setPASSWORD(cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_USER_PASSWORD)));
+
+                    int isadmin = cursor.getInt(cursor.getColumnIndex(DBHelper.COLUMN_USER_ISADMIN));
+                    user.setADMIN(isadmin >= 1);
+
+                    session.setUser(user);
+
+                    Toast.makeText(MainActivity.this, "Bienvenido " + user.getNAME(), Toast.LENGTH_LONG).show();
+
+                    Intent intent = new Intent(MainActivity.this, DarAltas.class);
+                    startActivity(intent);
+
+                } else {
+                    Toast.makeText(MainActivity.this, "Invalid username or password!",
+                            Toast.LENGTH_SHORT).show();
+
                 }
-
-                if (cursor != null) {
-                    if (cursor.getCount() > 0) {
-                        cursor.moveToFirst();
-                        User user = new User();
-
-                        user.setNAME(cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_USER_NAME)));
-                        user.setUSERNAME(cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_USER_USERNAME)));
-                        user.setPASSWORD(cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_USER_PASSWORD)));
-                        user.setADMIN(Boolean.parseBoolean(cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_USER_ISADMIN))));
-
-                        session.setUser(user);
-
-                        Toast.makeText(MainActivity.this, "Bienvenido " + user.getNAME(), Toast.LENGTH_LONG).show();
-
-                        Intent intent = new Intent(MainActivity.this, DarAltas.class);
-                        startActivity(intent);
-
-                    } else {
-                        Toast.makeText(MainActivity.this, "Invalid username or password!",
-                                Toast.LENGTH_SHORT).show();
-
-                    }
-                }
+            }
             }
         });
 
