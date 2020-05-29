@@ -14,11 +14,16 @@ public class Create_account extends AppCompatActivity {
         setContentView(R.layout.activity_create_account);
 
     }
+
     private final static String[] names = { "Ninguna", "TEPT-ASI", "CH Control Hogar",
             "CF Contol Familia" };
 
     public void signinBtn(View view) {
         Intent intent = new Intent(Create_account.this, Phase1Launcher.class);
         startActivity(intent);
+    }
+
+    public void createaccount(View view) {
+
     }
 }
