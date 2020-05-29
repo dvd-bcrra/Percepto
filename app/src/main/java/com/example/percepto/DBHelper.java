@@ -27,13 +27,12 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String COLUMN_PARTICIPANT_CURP = "curp";                //  CURP - (PK)
     private static final String COLUMN_PARTICIPANT_FIRSTNAME = "firstname";      //  nombre
     private static final String COLUMN_PARTICIPANT_LASTNAME = "lastname";        //  apellido
-    private static final String COLUMN_PARTICIPANT_BIRTHDAY = "birthday";        //  fecha de nacimiento
+    // private static final String COLUMN_PARTICIPANT_BIRTHDAY = "birthday";        //  fecha de nacimiento
     private static final String COLUMN_PARTICIPANT_AGE = "age";                  //  Edad
     private static final String COLUMN_PARTICIPANT_GROUP = "grupo";              //  grupo
     private static final String COLUMN_PARTICIPANT_TIME = "time";                //  tiempo en la institucion
     private static final String COLUMN_PARTICIPANT_LEVEL = "level";              //  Nivel educativo
     private static final String COLUMN_PARTICIPANT_IQ = "iq";                    //  Coeficeinte intelectual
-    private static final String COLUMN_PARTICIPANT_TEPT = "tept";                //  Transtorno por estres postraumatico
     private static final String COLUMN_PARTICIPANT_REEXP = "reexp";              //  Reexperimentacion
     private static final String COLUMN_PARTICIPANT_AVOID = "avoid";              //  Evitacion
     private static final String COLUMN_PARTICIPANT_ACTIVE = "active";            //  Activacion
@@ -73,13 +72,12 @@ public class DBHelper extends SQLiteOpenHelper {
                 "(" + COLUMN_PARTICIPANT_CURP + " TEXT, "
                 + COLUMN_PARTICIPANT_FIRSTNAME + " TEXT, "
                 + COLUMN_PARTICIPANT_LASTNAME + " TEXT, "
-                + COLUMN_PARTICIPANT_BIRTHDAY + " TEXT, "
+                // + COLUMN_PARTICIPANT_BIRTHDAY + " TEXT, "
                 + COLUMN_PARTICIPANT_AGE + " INTEGER, "
                 + COLUMN_PARTICIPANT_GROUP + " TEXT, "
                 + COLUMN_PARTICIPANT_TIME + " INTEGER, "
                 + COLUMN_PARTICIPANT_LEVEL + " TEXT, "
                 + COLUMN_PARTICIPANT_IQ + " TEXT, "
-                + COLUMN_PARTICIPANT_TEPT + " TEXT, "
                 + COLUMN_PARTICIPANT_REEXP + " TEXT, "
                 + COLUMN_PARTICIPANT_AVOID + " TEXT, "
                 + COLUMN_PARTICIPANT_ACTIVE + " TEXT, "
@@ -133,13 +131,12 @@ public class DBHelper extends SQLiteOpenHelper {
         values.put(COLUMN_PARTICIPANT_CURP, participant.getCURP());
         values.put(COLUMN_PARTICIPANT_FIRSTNAME, participant.getFIRSTNAME());
         values.put(COLUMN_PARTICIPANT_LASTNAME, participant.getLASTNAME());
-        values.put(COLUMN_PARTICIPANT_BIRTHDAY, participant.getBIRTHDAY());
+        //values.put(COLUMN_PARTICIPANT_BIRTHDAY, participant.getBIRTHDAY());
         values.put(COLUMN_PARTICIPANT_AGE, participant.getAGE());
         values.put(COLUMN_PARTICIPANT_GROUP, participant.getGROUP());
         values.put(COLUMN_PARTICIPANT_TIME, participant.getTIME());
         values.put(COLUMN_PARTICIPANT_LEVEL, participant.getLEVEL());
         values.put(COLUMN_PARTICIPANT_IQ, participant.getIQ());
-        values.put(COLUMN_PARTICIPANT_TEPT, participant.getTEPT());
         values.put(COLUMN_PARTICIPANT_REEXP, participant.getREEXP());
         values.put(COLUMN_PARTICIPANT_AVOID, participant.getAVOID());
         values.put(COLUMN_PARTICIPANT_ACTIVE, participant.getACTIVE());

@@ -4,16 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Create_account">
+    tools:context=".Create_account"
+    android:background="@color/Background">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical" >
+        android:orientation="vertical"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="20dp"
+        android:padding="10dp">
 
         <TextView
             android:text="Agregar Participante"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/White"
+            android:padding="10dp"
             android:id="@+id/txtAdduser" />
         <EditText
             android:layout_width="match_parent"
@@ -21,6 +29,9 @@
             android:inputType="textPersonName"
             android:hint="Nombre*"
             android:ems="10"
+            android:textColor="@color/White"
+            android:layout_margin="5dp"
+            android:background="@drawable/light_background"
             android:id="@+id/editNombre" />
         <EditText
             android:layout_width="match_parent"
@@ -28,6 +39,9 @@
             android:inputType="textPersonName"
             android:hint="Apellido*"
             android:ems="10"
+            android:textColor="@color/White"
+            android:layout_margin="5dp"
+            android:background="@drawable/light_background"
             android:id="@+id/editApellido" />
         <EditText
             android:layout_width="match_parent"
@@ -35,64 +49,92 @@
             android:inputType="number"
             android:hint="Edad*"
             android:ems="10"
-            android:id="@+id/editDate" />
+            android:textColor="@color/White"
+            android:layout_margin="5dp"
+            android:background="@drawable/light_background"
+            android:id="@+id/editEdad" />
         <TextView
             android:text="Agregar GRUPO"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/White"
+            android:padding="10dp"
             android:id="@+id/txtAddGroup" />
         <Spinner
-            android:id="@+id/spAnimals"
-            android:layout_width="wrap_content"
+            android:id="@+id/spGroup"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:entries="@array/group" />
+            android:entries="@array/group"
+            android:textColor="@color/White"
+            android:layout_margin="5dp"
+            android:padding="10dp"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
-            android:hint="meses en la institucion"
+            android:hint="Tiempo en la institucion"
             android:ems="10"
-            android:id="@+id/editTime"/>
+            android:textColor="@color/White"
+            android:layout_margin="5dp"
+            android:background="@drawable/light_background"
+            android:id="@+id/editTiempo"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Nivel educativo"
             android:ems="10"
-            android:id="@+id/editLevelEdu"/>
+            android:textColor="@color/White"
+            android:layout_margin="5dp"
+            android:background="@drawable/light_background"
+            android:id="@+id/editNivelEdu"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
             android:hint="CI"
             android:ems="10"
+            android:textColor="@color/White"
+            android:layout_margin="5dp"
+            android:background="@drawable/light_background"
             android:id="@+id/editCI"/>
         <TextView
             android:text="Trastorno por estres postraumatico"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/txtTitle_estres" />
+            android:id="@+id/txtTitle_estres"
+            android:textColor="@color/White"
+            android:padding="10dp"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textShortMessage"
             android:hint="Reexperimentacion"
             android:ems="10"
+            android:textColor="@color/White"
+            android:layout_margin="5dp"
+            android:background="@drawable/light_background"
             android:id="@+id/editRexperi"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textShortMessage"
-            android:hint="Evaluacion"
+            android:hint="Evitacion"
             android:ems="10"
-            android:id="@+id/editEvaluation"/>
+            android:textColor="@color/White"
+            android:layout_margin="5dp"
+            android:background="@drawable/light_background"
+            android:id="@+id/editEvitacion"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textShortMessage"
             android:hint="Activacion"
             android:ems="10"
+            android:textColor="@color/White"
+            android:layout_margin="5dp"
+            android:background="@drawable/light_background"
             android:id="@+id/editActivation"/>
         <EditText
             android:layout_width="match_parent"
@@ -100,16 +142,32 @@
             android:inputType="textShortMessage"
             android:hint="Ansiedad"
             android:ems="10"
-            android:id="@+id/editAnsiety"/>
+            android:textColor="@color/White"
+            android:layout_margin="5dp"
+            android:background="@drawable/light_background"
+            android:id="@+id/editAnx"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textShortMessage"
+            android:hint="Depresion"
+            android:ems="10"
+            android:textColor="@color/White"
+            android:layout_margin="5dp"
+            android:background="@drawable/light_background"
+            android:id="@+id/editDepression"/>
+
+
         <Button
             android:id="@+id/createa"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25sp"
-            android:background="@color/Background"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/purple_custom_rounded_corners"
             android:onClick="createaccount"
             android:clickable="true"
-            android:text="Registrarse"
+            android:text="Registrar participante"
             android:textColor="#fff" />
 
 

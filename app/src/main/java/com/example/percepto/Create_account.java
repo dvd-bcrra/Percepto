@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.percepto.model.Participant;
+
 public class Create_account extends AppCompatActivity {
 
     @Override
@@ -18,12 +20,8 @@ public class Create_account extends AppCompatActivity {
     private final static String[] names = { "Ninguna", "TEPT-ASI", "CH Control Hogar",
             "CF Contol Familia" };
 
-    public void signinBtn(View view) {
-        Intent intent = new Intent(Create_account.this, Phase1Launcher.class);
-        startActivity(intent);
-    }
-
     public void createaccount(View view) {
+        Participant participant = new Participant();
 
     }
 }
