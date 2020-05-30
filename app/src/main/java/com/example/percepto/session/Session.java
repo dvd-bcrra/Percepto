@@ -21,6 +21,13 @@ public class Session {
         prefs.edit().putBoolean("admin", user.isADMIN()).apply();
     }
 
+    public void setNullUser(){
+        prefs.edit().putString("name", "").apply();
+        prefs.edit().putString("username", "").apply();
+        prefs.edit().putString("password", "").apply();
+        prefs.edit().putBoolean("admin", false).apply();
+    }
+
     public User getUser() {
         User user = new User();
         user.setNAME(prefs.getString("name",""));

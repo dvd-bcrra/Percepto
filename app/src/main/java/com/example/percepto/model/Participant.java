@@ -4,13 +4,11 @@ public class Participant {
     private String CURP;
     private String FIRSTNAME;
     private String LASTNAME;
-    private String BIRTHDAY;
     private int AGE;
     private String GROUP;
     private int TIME;
     private String LEVEL;
     private String IQ;
-    private String TEPT;
     private String REEXP;
     private String AVOID;
     private String ACTIVE;
@@ -39,14 +37,6 @@ public class Participant {
 
     public void setLASTNAME(String LASTNAME) {
         this.LASTNAME = LASTNAME;
-    }
-
-    public String getBIRTHDAY() {
-        return BIRTHDAY;
-    }
-
-    public void setBIRTHDAY(String BIRTHDAY) {
-        this.BIRTHDAY = BIRTHDAY;
     }
 
     public int getAGE() {
@@ -87,14 +77,6 @@ public class Participant {
 
     public void setIQ(String IQ) {
         this.IQ = IQ;
-    }
-
-    public String getTEPT() {
-        return TEPT;
-    }
-
-    public void setTEPT(String TEPT) {
-        this.TEPT = TEPT;
     }
 
     public String getREEXP() {

@@ -23,6 +23,7 @@
             android:textColor="@color/White"
             android:padding="10dp"
             android:id="@+id/txtAdduser" />
+
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -32,7 +33,8 @@
             android:textColor="@color/White"
             android:layout_margin="5dp"
             android:background="@drawable/light_background"
-            android:id="@+id/editNombre" />
+            android:id="@+id/editNombre"
+            android:textColorHint="@color/LightBlue"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -42,7 +44,20 @@
             android:textColor="@color/White"
             android:layout_margin="5dp"
             android:background="@drawable/light_background"
-            android:id="@+id/editApellido" />
+            android:id="@+id/editApellido"
+            android:textColorHint="@color/LightBlue"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="Curp*"
+            android:ems="10"
+            android:textColor="@color/White"
+            android:layout_margin="5dp"
+            android:background="@drawable/light_background"
+            android:id="@+id/editCurp"
+            android:textColorHint="@color/LightBlue"/>
+
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -52,7 +67,9 @@
             android:textColor="@color/White"
             android:layout_margin="5dp"
             android:background="@drawable/light_background"
-            android:id="@+id/editEdad" />
+            android:id="@+id/editEdad"
+            android:textColorHint="@color/LightBlue"/>
+
         <TextView
             android:text="Agregar GRUPO"
             android:layout_width="match_parent"
@@ -79,7 +96,8 @@
             android:textColor="@color/White"
             android:layout_margin="5dp"
             android:background="@drawable/light_background"
-            android:id="@+id/editTiempo"/>
+            android:id="@+id/editTiempo"
+            android:textColorHint="@color/LightBlue"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -88,7 +106,8 @@
             android:textColor="@color/White"
             android:layout_margin="5dp"
             android:background="@drawable/light_background"
-            android:id="@+id/editNivelEdu"/>
+            android:id="@+id/editNivelEdu"
+            android:textColorHint="@color/LightBlue"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -98,14 +117,16 @@
             android:textColor="@color/White"
             android:layout_margin="5dp"
             android:background="@drawable/light_background"
-            android:id="@+id/editCI"/>
+            android:id="@+id/editCI"
+            android:textColorHint="@color/LightBlue"/>
         <TextView
             android:text="Trastorno por estres postraumatico"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/txtTitle_estres"
             android:textColor="@color/White"
-            android:padding="10dp"/>
+            android:padding="10dp"
+            android:textColorHint="@color/LightBlue"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -115,7 +136,8 @@
             android:textColor="@color/White"
             android:layout_margin="5dp"
             android:background="@drawable/light_background"
-            android:id="@+id/editRexperi"/>
+            android:id="@+id/editRexperi"
+            android:textColorHint="@color/LightBlue"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -125,7 +147,8 @@
             android:textColor="@color/White"
             android:layout_margin="5dp"
             android:background="@drawable/light_background"
-            android:id="@+id/editEvitacion"/>
+            android:id="@+id/editEvitacion"
+            android:textColorHint="@color/LightBlue"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -135,7 +158,8 @@
             android:textColor="@color/White"
             android:layout_margin="5dp"
             android:background="@drawable/light_background"
-            android:id="@+id/editActivation"/>
+            android:id="@+id/editActivation"
+            android:textColorHint="@color/LightBlue"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -145,7 +169,8 @@
             android:textColor="@color/White"
             android:layout_margin="5dp"
             android:background="@drawable/light_background"
-            android:id="@+id/editAnx"/>
+            android:id="@+id/editAnx"
+            android:textColorHint="@color/LightBlue"/>
 
         <EditText
             android:layout_width="match_parent"
@@ -156,7 +181,8 @@
             android:textColor="@color/White"
             android:layout_margin="5dp"
             android:background="@drawable/light_background"
-            android:id="@+id/editDepression"/>
+            android:id="@+id/editDepression"
+            android:textColorHint="@color/LightBlue"/>
 
 
         <Button

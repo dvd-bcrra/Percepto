@@ -4,10 +4,10 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="Background">#05204a</color>
-    <color name="LightBackground">#07306f</color>
+    <color name="LightBackground">#1d488a</color>
     <color name="White">#FFFF</color>
     <color name="Purple">#6b3fa0</color>
     <color name="DarkPurple">#35063e</color>
     <color name="LightPurple">#e8ebff</color>
-
+    <color name="LightBlue">#3c86cf</color>
 </resources>
