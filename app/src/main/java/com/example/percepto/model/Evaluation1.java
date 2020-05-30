@@ -41,7 +41,7 @@ public class Evaluation1 {
 
     public void AddRecord(String word, int score){
         Record1 record1 = new Record1();
-        record1.setEVAL1ID(session.getCurrentParticipant());
+        record1.setEVAL1ID(session.getCurrentParticipantCurp());
         record1.setWORD(word);
         record1.setSCORE(score);
         records.add(record1);

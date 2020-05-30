@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 import com.example.percepto.model.*;
 
@@ -75,7 +76,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 // + COLUMN_PARTICIPANT_BIRTHDAY + " TEXT, "
                 + COLUMN_PARTICIPANT_AGE + " INTEGER, "
                 + COLUMN_PARTICIPANT_GROUP + " TEXT, "
-                + COLUMN_PARTICIPANT_TIME + " INTEGER, "
+                + COLUMN_PARTICIPANT_TIME + " TEXT, "
                 + COLUMN_PARTICIPANT_LEVEL + " TEXT, "
                 + COLUMN_PARTICIPANT_IQ + " TEXT, "
                 + COLUMN_PARTICIPANT_REEXP + " TEXT, "
@@ -144,6 +145,8 @@ public class DBHelper extends SQLiteOpenHelper {
         values.put(COLUMN_PARTICIPANT_DPRS, participant.getDPRS());
 
         db.insert(PARTICIPANT_TABLE,null,values);
+
+
         db.close();
     }
 

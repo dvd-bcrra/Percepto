@@ -43,11 +43,11 @@ public class Session {
         }
     }
 
-    public void setCurrentParticipant(String curp){
+    public void setCurrentParticipantCurp(String curp){
         prefs.edit().putString("currentParticipant",curp).apply();
     }
 
-    public String getCurrentParticipant(){
+    public String getCurrentParticipantCurp(){
         return prefs.getString("currentParticipant","");
     }
 }

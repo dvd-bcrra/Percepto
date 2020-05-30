@@ -101,8 +101,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
 
                 } else {
-                    Toast.makeText(MainActivity.this, "Invalid username or password!",
-                            Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Invalid username or password!", Toast.LENGTH_SHORT).show();
 
                 }
             }

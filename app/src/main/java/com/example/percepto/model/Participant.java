@@ -6,7 +6,7 @@ public class Participant {
     private String LASTNAME;
     private int AGE;
     private String GROUP;
-    private int TIME;
+    private String TIME;
     private String LEVEL;
     private String IQ;
     private String REEXP;
@@ -55,11 +55,11 @@ public class Participant {
         this.GROUP = GROUP;
     }
 
-    public int getTIME() {
+    public String getTIME() {
         return TIME;
     }
 
-    public void setTIME(int TIME) {
+    public void setTIME(String TIME) {
         this.TIME = TIME;
     }
 
