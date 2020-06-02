@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Create_account"></activity>
+        <activity android:name=".graph_data"></activity>
+        <activity android:name=".Create_account" />
         <activity android:name=".Test_completed" />
         <activity android:name=".DarAltas" />
         <activity android:name=".Splash">
