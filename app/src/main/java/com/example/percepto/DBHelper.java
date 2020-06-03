@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
 
 import com.example.percepto.model.*;
+import com.github.mikephil.charting.renderer.scatter.ChevronUpShapeRenderer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +29,7 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String COLUMN_PARTICIPANT_CURP = "curp";                //  CURP - (PK)
     private static final String COLUMN_PARTICIPANT_FIRSTNAME = "firstname";      //  nombre
     private static final String COLUMN_PARTICIPANT_LASTNAME = "lastname";        //  apellido
-    // private static final String COLUMN_PARTICIPANT_BIRTHDAY = "birthday";        //  fecha de nacimiento
+    // private static final String COLUMN_PARTICIPANT_BIRTHDAY = "birthday";     //  fecha de nacimiento
     private static final String COLUMN_PARTICIPANT_AGE = "age";                  //  Edad
     private static final String COLUMN_PARTICIPANT_GROUP = "grupo";              //  grupo
     private static final String COLUMN_PARTICIPANT_TIME = "time";                //  tiempo en la institucion
@@ -132,7 +133,6 @@ public class DBHelper extends SQLiteOpenHelper {
         values.put(COLUMN_PARTICIPANT_CURP, participant.getCURP());
         values.put(COLUMN_PARTICIPANT_FIRSTNAME, participant.getFIRSTNAME());
         values.put(COLUMN_PARTICIPANT_LASTNAME, participant.getLASTNAME());
-        //values.put(COLUMN_PARTICIPANT_BIRTHDAY, participant.getBIRTHDAY());
         values.put(COLUMN_PARTICIPANT_AGE, participant.getAGE());
         values.put(COLUMN_PARTICIPANT_GROUP, participant.getGROUP());
         values.put(COLUMN_PARTICIPANT_TIME, participant.getTIME());
@@ -153,5 +153,73 @@ public class DBHelper extends SQLiteOpenHelper {
     public Cursor getUsersData(){
         SQLiteDatabase db = this.getWritableDatabase();
         return db.rawQuery("SELECT * FROM " + USER_TABLE, null);
+    }
+
+    void AddEvaluation1(Evaluation1 evaluation1){
+        db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(COLUMN_EVAL1_ID, evaluation1.getID());
+        values.put(COLUMN_EVAL1_CURP,evaluation1.getCURP());
+        values.put(COLUMN_EVAL1_DATE,evaluation1.getDATE());
+
+        db.insert(EVAL1_TABLE,null,values);
+        db.close();
+
+        for (Record1 record : evaluation1.getRecords()) {
+            AddRecord(record);
+        }
+    }
+
+    private void AddRecord(Record1 record){
+        db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(COLUMN_RECORDS1_EVAL1_ID,record.getEVAL1ID());
+        values.put(COLUMN_RECORD1_WORD,record.getWORD());
+        values.put(COLUMN_RECORD1_SCORE, record.getSCORE());
+
+        db.insert(RECORDS1_TABLE,null,values);
+        db.close();
+    }
+
+    public Evaluation1 getEvaluation1(String id){
+        db = this.getReadableDatabase();
+        Evaluation1 temp = new Evaluation1();
+        Cursor cursor;
+
+        cursor = db.rawQuery("SELECT * FROM " + EVAL1_TABLE + " WHERE " + COLUMN_EVAL1_ID + " = " + id,null);
+        if(cursor.moveToFirst()){
+            temp.setID(cursor.getString(0));
+            temp.setCURP(cursor.getString(1));
+            temp.setDATE(cursor.getString(2));
+        }
+
+        temp.setRecords(record1s(temp.getID()));
+
+        cursor.close();
+        db.close();
+        return temp;
+    }
+
+    private ArrayList<Record1> record1s(String EvalID){
+        db = this.getReadableDatabase();
+        Cursor cursor;
+        ArrayList<Record1> temp = new ArrayList<>();
+
+        cursor = db.rawQuery("SELECT * FROM " + RECORDS1_TABLE + " WHERE " + COLUMN_RECORDS1_EVAL1_ID + " = " + EvalID,null);
+        if(cursor.moveToFirst()){
+            do{
+                Record1 record = new Record1();
+                record.setEVAL1ID(cursor.getString(cursor.getColumnIndex(COLUMN_RECORDS1_EVAL1_ID)));
+                record.setWORD(cursor.getString(cursor.getColumnIndex(COLUMN_RECORD1_WORD)));
+                record.setSCORE(cursor.getInt(cursor.getColumnIndex(COLUMN_RECORD1_SCORE)));
+                temp.add(record);
+            }while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+        return temp;
     }
 }

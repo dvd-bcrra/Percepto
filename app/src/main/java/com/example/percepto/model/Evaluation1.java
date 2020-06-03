@@ -41,7 +41,7 @@ public class Evaluation1 {
 
     public void AddRecord(String word, int score){
         Record1 record1 = new Record1();
-        record1.setEVAL1ID(session.getCurrentParticipantCurp());
+        record1.setEVAL1ID(getID());
         record1.setWORD(word);
         record1.setSCORE(score);
         records.add(record1);
@@ -50,4 +50,6 @@ public class Evaluation1 {
     public ArrayList<Record1> getRecords(){
         return records;
     }
+
+    public void setRecords(ArrayList<Record1> records) { this.records = records; }
 }

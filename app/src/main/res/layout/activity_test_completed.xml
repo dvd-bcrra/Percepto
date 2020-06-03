@@ -36,23 +36,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginEnd="15dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginBottom="15dp"
-                    android:text="Prueba Finalizada"
+                    android:layout_margin="15dp"
+                    android:text="Prueba 1 Finalizada"
                     android:textSize="25sp"
                     android:fontFamily="sans-serif-black"/>
 
-                <ImageView
-                    android:id="@+id/imgFase1"
-                    android:layout_below="@+id/txtFasedeestudio"
+                <com.github.mikephil.charting.charts.LineChart
+                    android:id="@+id/lineChart"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="70dp"
-                    android:layout_marginEnd="70dp"
-                    android:adjustViewBounds="true"
-                    android:src="@drawable/test"/>
+                    android:layout_below="@id/txtFasedeestudio"/>
 
             </RelativeLayout>
 
@@ -85,12 +78,21 @@
                     android:textSize="15sp"
                     android:text="@string/Phase1Description"/>
 
+                <CheckBox
+                    android:id="@+id/chkExportar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="30dp"
+                    android:layout_marginVertical="15dp"
+                    android:text="Exportar resultado de la evaluación"/>
+
                 <Button
                     android:tag="siguente"
                     android:id="@+id/btnCompletedNext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="30dp"
+                    android:layout_marginHorizontal="30dp"
+                    android:layout_marginVertical="15dp"
                     android:text="Siguiente"
                     android:textColor="#ffffff"
                     android:onClick="btnCompletedNext_Click"

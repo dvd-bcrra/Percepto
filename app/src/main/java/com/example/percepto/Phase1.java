@@ -17,15 +17,27 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.percepto.Words.JsonWords;
+import com.example.percepto.model.Evaluation1;
+import com.example.percepto.session.Session;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.Random;
+
+import javax.xml.transform.Templates;
 
 public class Phase1 extends AppCompatActivity {
 
     private int numPregunta;
+    Evaluation1 eval;
+    Session session;
     ArrayList<String> palabras = Palabras();
+    DBHelper db;
 
     //Views
     TextView txtNumPregunta;
@@ -45,6 +57,8 @@ public class Phase1 extends AppCompatActivity {
         llreacciones = findViewById(R.id.llreacciones);
 
         numPregunta = 0;
+        CargarEvaluacion();
+        db = new DBHelper(this);
         llreacciones.setVisibility(View.INVISIBLE);
 
         CargarContador();
@@ -55,6 +69,8 @@ public class Phase1 extends AppCompatActivity {
     public void btnScoreNext(View view) {
         Animation shake = AnimationUtils.loadAnimation(this,R.anim.shake);
         view.startAnimation(shake);
+        int score = Integer.parseInt(view.getTag().toString());
+        eval.AddRecord(palabras.get(numPregunta),score);
         numPregunta++;
         CargarPregunta();
     }
@@ -79,7 +95,9 @@ public class Phase1 extends AppCompatActivity {
 
     public void CargarPregunta(){
         if (numPregunta == 20){
+            db.AddEvaluation1(eval);
             Intent TestCompleted = new Intent(Phase1.this,Test_completed.class);
+            TestCompleted.putExtra("ID_EVAL1",eval.getID());
             startActivity(TestCompleted);
         }else{
             txtNumPregunta.setText(String.format("Pregunta %d",numPregunta + 1));
@@ -126,5 +144,15 @@ public class Phase1 extends AppCompatActivity {
             list.set(i,list.get(j));
             list.set(j,obj);
         }
+    }
+
+    private void CargarEvaluacion(){
+        eval = new Evaluation1();
+        eval.setCURP(session.getCurrentParticipantCurp());
+        SimpleDateFormat id_formatter = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss", Locale.US);
+        SimpleDateFormat date_formatter = new SimpleDateFormat("yyyy/MM/dd", Locale.US);
+        Date date = new Date();
+        eval.setID(id_formatter.format(date));
+        eval.setDATE((date_formatter.format(date)));
     }
 }

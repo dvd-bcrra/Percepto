@@ -27,7 +27,7 @@ public class graph_data extends AppCompatActivity {
         ArrayList<Entry> lineEntries = new ArrayList<Entry>();
         for (int i = 0; i<11; i++){
             float y = (int) (Math.random() * 8) + 1;
-            lineEntries.add(new Entry((float) i,(float)y));
+            lineEntries.add(new Entry((int) i,(float)y));
         }
 
         // Unimos los datos al data set
