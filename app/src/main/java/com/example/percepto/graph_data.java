@@ -30,7 +30,7 @@ public class graph_data extends AppCompatActivity {
             lineEntries.add(new Entry((float) i,(float)y));
         }
 
-// Unimos los datos al data set
+        // Unimos los datos al data set
         lineDataSet = new LineDataSet(lineEntries, "Platzi");
 
         // Asociamos al gráfico
