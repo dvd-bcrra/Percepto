@@ -188,11 +188,11 @@ public class DBHelper extends SQLiteOpenHelper {
         Evaluation1 temp = new Evaluation1();
         Cursor cursor;
 
-        cursor = db.rawQuery("SELECT * FROM " + EVAL1_TABLE + " WHERE " + COLUMN_EVAL1_ID + " = " + id,null);
+        cursor = db.rawQuery("SELECT * FROM " + EVAL1_TABLE + " WHERE " + COLUMN_EVAL1_ID + " = '" + id + "';",null);
         if(cursor.moveToFirst()){
-            temp.setID(cursor.getString(0));
-            temp.setCURP(cursor.getString(1));
-            temp.setDATE(cursor.getString(2));
+            temp.setID(cursor.getString(cursor.getColumnIndex(COLUMN_EVAL1_ID)));
+            temp.setCURP(cursor.getString(cursor.getColumnIndex(COLUMN_EVAL1_CURP)));
+            temp.setDATE(cursor.getString(cursor.getColumnIndex(COLUMN_EVAL1_DATE)));
         }
 
         temp.setRecords(record1s(temp.getID()));
@@ -207,7 +207,7 @@ public class DBHelper extends SQLiteOpenHelper {
         Cursor cursor;
         ArrayList<Record1> temp = new ArrayList<>();
 
-        cursor = db.rawQuery("SELECT * FROM " + RECORDS1_TABLE + " WHERE " + COLUMN_RECORDS1_EVAL1_ID + " = " + EvalID,null);
+        cursor = db.rawQuery("SELECT * FROM " + RECORDS1_TABLE + " WHERE " + COLUMN_RECORDS1_EVAL1_ID + " = '" + EvalID + "';",null);
         if(cursor.moveToFirst()){
             do{
                 Record1 record = new Record1();

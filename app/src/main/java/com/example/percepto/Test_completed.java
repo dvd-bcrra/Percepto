@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.percepto.model.Evaluation1;
+import com.example.percepto.session.Session;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
@@ -23,24 +24,29 @@ public class Test_completed extends AppCompatActivity {
     private LineDataSet lineDataSet;
 
     DBHelper db;
+    Session session;
     private Evaluation1 evaluation1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_completed);
-
         db = new DBHelper(this);
-        String evalid = Objects.requireNonNull(getIntent().getExtras()).getString("ID_EVAL1");
-        evaluation1 = db.getEvaluation1(evalid);
+        session = new Session(this);
+
+        if(session.UserIsAdmin()){
+            String evalid = Objects.requireNonNull(getIntent().getExtras()).getString("ID_EVAL1");
+            evaluation1 = db.getEvaluation1(evalid);
+            CargarGrafica(evaluation1);
+        }
     }
 
-    private void CargarGrafica(){
+    private void CargarGrafica(Evaluation1 eval){
         lineChart = findViewById(R.id.lineChart);
         ArrayList<Entry> lineEntries = new ArrayList<Entry>();
-        for (int i = 0; i<evaluation1.getRecords().size(); i++){
-            float y = (int) evaluation1.getRecords().get(i).getSCORE();
-            lineEntries.add(new Entry((int) i,(float)y));
+        for (int i = 0; i<eval.getRecords().size(); i++) {
+            float y = (int) eval.getRecords().get(i).getSCORE();
+            lineEntries.add(new Entry((int) i, (float) y));
         }
 
         // Unimos los datos al data set

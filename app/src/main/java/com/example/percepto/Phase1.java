@@ -56,9 +56,12 @@ public class Phase1 extends AppCompatActivity {
         txtContador =  findViewById(R.id.txtContador);
         llreacciones = findViewById(R.id.llreacciones);
 
+        session = new Session(this);
+
+        db = new DBHelper(this);
+
         numPregunta = 0;
         CargarEvaluacion();
-        db = new DBHelper(this);
         llreacciones.setVisibility(View.INVISIBLE);
 
         CargarContador();
@@ -109,23 +112,19 @@ public class Phase1 extends AppCompatActivity {
         ArrayList<String> temp = new ArrayList<>();
         JsonWords words = JsonWords.getInstance();
 
-        for(int i = 0; i < 20; i++){
+        for(int i = 0; i < 7; i++){
             String palabraAlegre = words.PalabrasAlegres.get(i);
             temp.add(palabraAlegre);
         }
 
-        for(int i = 0; i < 20; i++){
+        for(int i = 0; i < 7; i++){
             String palabraMiedosa = words.PalabrasMiedosas.get(i);
             temp.add(palabraMiedosa);
         }
 
-        for(int i = 0; i < 20; i++){
+        for(int i = 0; i < 6; i++){
             String palabraNeutra = words.PalabrasNeutras.get(i);
             temp.add(palabraNeutra);
-        }
-
-        for (int i = 0; i < 40; i++){
-            temp.remove(0);
         }
 
         Shuffle(temp);

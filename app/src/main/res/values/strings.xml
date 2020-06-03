@@ -1,7 +1,12 @@
 <resources>
     <string name="app_name">Percepto</string>
     <string name="Phase1Description">
+        Indica la familiaridad de la palabra que verás.
+        Selecciona carita triste si es poco familiar y carita feliz si es muy familiar.
+    </string>
+    <string name="Phase1Completed">
         Bien hecho, lo lograste.
+        Para continuar con la siguiente prueba, pulse siguiente.
         Para volver al inicio pulse el boton de regresar.
     </string>
 

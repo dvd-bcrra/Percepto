@@ -47,6 +47,11 @@ public class Session {
         prefs.edit().putString("currentParticipant",curp).apply();
     }
 
+    public boolean UserIsAdmin(){
+        User user = getUser();
+        return user.isADMIN();
+    }
+
     public String getCurrentParticipantCurp(){
         return prefs.getString("currentParticipant","");
     }

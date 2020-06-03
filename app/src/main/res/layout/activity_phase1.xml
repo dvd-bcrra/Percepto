@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/Background"
-    tools:context=".Phase1">
+    tools:context=".Phase1"
+    android:fitsSystemWindows="true">
 
     <TextView
         android:id="@+id/txtNumPregunta"

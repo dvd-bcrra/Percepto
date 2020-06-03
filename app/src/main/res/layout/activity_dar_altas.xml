@@ -10,7 +10,8 @@
     android:padding="32dp"
     android:background="@color/Background"
     android:orientation="vertical"
-    tools:context=".DarAltas">
+    tools:context=".DarAltas"
+    android:fitsSystemWindows="true">
 
     <Button
         android:id="@+id/btnRegisteradminNext"
