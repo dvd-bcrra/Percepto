@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -14,6 +15,7 @@ import com.example.percepto.model.Participant;
 import com.example.percepto.session.Session;
 
 public class Create_account extends AppCompatActivity {
+    CheckBox maceptcond;
 
     EditText editNombre;
     EditText editApellido;
@@ -38,6 +40,7 @@ public class Create_account extends AppCompatActivity {
         setContentView(R.layout.activity_create_account);
 
         //CAMPOS
+        maceptcond=findViewById(R.id.accept_condition);
         editNombre = findViewById(R.id.editNombre);
         editApellido = findViewById(R.id.editApellido);
         editCURP = findViewById(R.id.editCurp);
@@ -54,12 +57,16 @@ public class Create_account extends AppCompatActivity {
 
         dbHelper = new DBHelper(this);
         session = new Session(this);
+
+
+
     }
 
     private final static String[] names = { "Ninguna", "TEPT-ASI", "CH Control Hogar",
             "CF Contol Familia" };
 
     public void createaccount(View view) {
+
         Participant participant = new Participant();
 
         if (editNombre.getText().toString().equals("") ||
@@ -67,6 +74,7 @@ public class Create_account extends AppCompatActivity {
                 editCURP.getText().toString().equals("") ||
                 editEdad.getText().toString().equals("")
         ){
+            maceptcond.setChecked(false);
             Toast.makeText(this,"Introduzca todos los campos obligatorios",Toast.LENGTH_SHORT).show();
         }else{
 
@@ -87,6 +95,7 @@ public class Create_account extends AppCompatActivity {
             dbHelper.AddParticipant(participant);
             Toast.makeText(this,"Participante Agregado",Toast.LENGTH_SHORT).show();
             session.setCurrentParticipantCurp(participant.getCURP());
+            maceptcond.setChecked(true);
 
             Intent Phase1Launcher = new Intent(this, Phase1Launcher.class);
             startActivity(Phase1Launcher);
