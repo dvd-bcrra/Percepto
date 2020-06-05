@@ -184,6 +184,12 @@
             android:background="@drawable/light_background"
             android:id="@+id/editDepresion"
             android:textColorHint="@color/LightBlue"/>
+        <CheckBox
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="aceptas la el consentimiento"
+            android:id="@+id/accept_condition"
+            />
 
 
         <Button
