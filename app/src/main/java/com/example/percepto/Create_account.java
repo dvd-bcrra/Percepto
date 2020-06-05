@@ -84,6 +84,8 @@ public class Create_account extends AppCompatActivity {
             participant.setANX(editAnsiedad.getText().toString());
             participant.setDPRS(editDepresion.getText().toString());
 
+
+
             dbHelper.AddParticipant(participant);
             Toast.makeText(this,"Participante Agregado",Toast.LENGTH_SHORT).show();
             session.setCurrentParticipantCurp(participant.getCURP());

@@ -11,9 +11,15 @@ import android.view.View;
 import com.example.percepto.model.Evaluation1;
 import com.example.percepto.session.Session;
 import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.AxisBase;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.formatter.IAxisValueFormatter;
+import com.github.mikephil.charting.formatter.IValueFormatter;
+import com.github.mikephil.charting.utils.ViewPortHandler;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -45,21 +51,49 @@ public class Test_completed extends AppCompatActivity {
         lineChart = findViewById(R.id.lineChart);
         ArrayList<Entry> lineEntries = new ArrayList<Entry>();
         for (int i = 0; i<eval.getRecords().size(); i++) {
-            float y = (int) eval.getRecords().get(i).getSCORE();
-            lineEntries.add(new Entry((int) i, (float) y));
+            int y = eval.getRecords().get(i).getSCORE();
+            lineEntries.add(new Entry(i+1,y));
         }
 
         // Unimos los datos al data set
         lineDataSet = new LineDataSet(lineEntries, "Resultados");
+        lineDataSet.setDrawCircles(false);
+
+        //Formatear las etiquetas
+        LineData lineData = new LineData();
+        XAxis xAxis = lineChart.getXAxis();
+        xAxis.setSpaceMin(0);
+        xAxis.setSpaceMax(5);
+        YAxis yAxisLeft = lineChart.getAxisLeft();
+        YAxis yAxisRight = lineChart.getAxisRight();
+
+        yAxisLeft.setValueFormatter(new AxisValuesFormatter());
+        yAxisRight.setValueFormatter(new AxisValuesFormatter());
 
         // Asociamos al gráfico
-        LineData lineData = new LineData();
         lineData.addDataSet(lineDataSet);
+        lineData.setValueFormatter(new LineDataFormatter());
         lineChart.setData(lineData);
     }
 
     public void btnCompletedNext_Click(View view) {
         Intent newIntent2 = new Intent(Test_completed.this,DarAltas.class);
         startActivity(newIntent2);
+    }
+
+    private static class LineDataFormatter implements IValueFormatter {
+        @Override
+        public String getFormattedValue(float value, Entry entry, int dataSetIndex, ViewPortHandler viewPortHandler) {
+            int intvalue = (int)value;
+            return Integer.toString(intvalue);
+        }
+    }
+
+    private static class AxisValuesFormatter implements IAxisValueFormatter{
+
+        @Override
+        public String getFormattedValue(float value, AxisBase axis) {
+            return "";
+        }
     }
 }
