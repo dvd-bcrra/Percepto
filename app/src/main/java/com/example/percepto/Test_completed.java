@@ -21,6 +21,7 @@ import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.github.mikephil.charting.formatter.IValueFormatter;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 
+import java.security.PrivateKey;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -62,13 +63,12 @@ public class Test_completed extends AppCompatActivity {
         //Formatear las etiquetas
         LineData lineData = new LineData();
         XAxis xAxis = lineChart.getXAxis();
-        xAxis.setSpaceMin(0);
-        xAxis.setSpaceMax(5);
+        xAxis.setAvoidFirstLastClipping(true);
         YAxis yAxisLeft = lineChart.getAxisLeft();
         YAxis yAxisRight = lineChart.getAxisRight();
 
-        yAxisLeft.setValueFormatter(new AxisValuesFormatter());
-        yAxisRight.setValueFormatter(new AxisValuesFormatter());
+        yAxisLeft.setValueFormatter(new YAxisValuesFormatter());
+        yAxisRight.setValueFormatter(new YAxisValuesFormatter());
 
         // Asociamos al gráfico
         lineData.addDataSet(lineDataSet);
@@ -89,11 +89,12 @@ public class Test_completed extends AppCompatActivity {
         }
     }
 
-    private static class AxisValuesFormatter implements IAxisValueFormatter{
+    private static class YAxisValuesFormatter implements IAxisValueFormatter{
 
         @Override
         public String getFormattedValue(float value, AxisBase axis) {
             return "";
         }
     }
+
 }

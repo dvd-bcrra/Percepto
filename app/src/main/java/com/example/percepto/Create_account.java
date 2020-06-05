@@ -92,15 +92,16 @@ public class Create_account extends AppCompatActivity {
             participant.setANX(editAnsiedad.getText().toString());
             participant.setDPRS(editDepresion.getText().toString());
 
+            if(maceptcond.isChecked()){
+                dbHelper.AddParticipant(participant);
+                Toast.makeText(this,"Participante Agregado",Toast.LENGTH_SHORT).show();
+                session.setCurrentParticipantCurp(participant.getCURP());
 
-
-            dbHelper.AddParticipant(participant);
-            Toast.makeText(this,"Participante Agregado",Toast.LENGTH_SHORT).show();
-            session.setCurrentParticipantCurp(participant.getCURP());
-            maceptcond.setChecked(true);
-
-            Intent Phase1Launcher = new Intent(this, Phase1Launcher.class);
-            startActivity(Phase1Launcher);
+                Intent Phase1Launcher = new Intent(this, Phase1Launcher.class);
+                startActivity(Phase1Launcher);
+            }else{
+                Toast.makeText(this,"Firmala Gio",Toast.LENGTH_SHORT).show();
+            }
         }
     }
 }

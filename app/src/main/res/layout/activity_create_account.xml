@@ -139,17 +139,7 @@
             android:background="@drawable/light_background"
             android:id="@+id/editReexperimentacion"
             android:textColorHint="@color/LightBlue"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textShortMessage"
-            android:hint="Evitacion"
-            android:ems="10"
-            android:textColor="@color/White"
-            android:layout_margin="5dp"
-            android:background="@drawable/light_background"
-            android:id="@+id/editEvitacion"
-            android:textColorHint="@color/LightBlue"/>
+
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -187,9 +177,9 @@
         <CheckBox
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="aceptas la el consentimiento"
+            android:text="Acepto el concentimiento de mis datos"
             android:id="@+id/accept_condition"
-            />
+            android:textColor="@color/White"/>
 
 
         <Button
@@ -203,7 +193,17 @@
             android:text="Registrar participante"
             android:textColor="#fff" />
 
-
+        <EditText
+            android:id="@+id/editEvitacion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/light_background"
+            android:ems="10"
+            android:hint="Evitacion"
+            android:inputType="textShortMessage"
+            android:textColor="@color/White"
+            android:textColorHint="@color/LightBlue" />
 
 
     </LinearLayout>
