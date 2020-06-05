@@ -4,11 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.Toast;
 
 import com.example.percepto.model.Evaluation1;
+import com.example.percepto.model.Participant;
 import com.example.percepto.session.Session;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.AxisBase;
@@ -33,6 +38,7 @@ public class Test_completed extends AppCompatActivity {
     DBHelper db;
     Session session;
     private Evaluation1 evaluation1;
+    CheckBox generarCSV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +46,7 @@ public class Test_completed extends AppCompatActivity {
         setContentView(R.layout.activity_test_completed);
         db = new DBHelper(this);
         session = new Session(this);
+        generarCSV = findViewById(R.id.chkExportar);
 
         if(session.UserIsAdmin()){
             String evalid = Objects.requireNonNull(getIntent().getExtras()).getString("ID_EVAL1");
@@ -77,8 +84,14 @@ public class Test_completed extends AppCompatActivity {
     }
 
     public void btnCompletedNext_Click(View view) {
-        Intent newIntent2 = new Intent(Test_completed.this,DarAltas.class);
-        startActivity(newIntent2);
+
+        Participant participant = db.getParticipant(session.getCurrentParticipantCurp());
+        String nombreArchivo = participant.getFIRSTNAME() + "-" + participant.getLASTNAME() + ".csv";
+        if(generarCSV.isChecked()){
+            CsvGenerator generator = new CsvGenerator(nombreArchivo,participant,evaluation1,this);
+            generator.GenerarEvaluacion1();
+            Toast.makeText(this, "Archivo Generado con exito", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private static class LineDataFormatter implements IValueFormatter {
@@ -96,5 +109,6 @@ public class Test_completed extends AppCompatActivity {
             return "";
         }
     }
+
 
 }

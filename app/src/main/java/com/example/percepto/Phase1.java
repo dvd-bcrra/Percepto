@@ -148,7 +148,7 @@ public class Phase1 extends AppCompatActivity {
     private void CargarEvaluacion(){
         eval = new Evaluation1();
         eval.setCURP(session.getCurrentParticipantCurp());
-        SimpleDateFormat id_formatter = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss", Locale.US);
+        SimpleDateFormat id_formatter = new SimpleDateFormat("yyyy/MM/dd_HH:mm:ss", Locale.US);
         SimpleDateFormat date_formatter = new SimpleDateFormat("yyyy/MM/dd", Locale.US);
         Date date = new Date();
         eval.setID(id_formatter.format(date));

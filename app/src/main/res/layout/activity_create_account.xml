@@ -141,6 +141,18 @@
             android:textColorHint="@color/LightBlue"/>
 
         <EditText
+            android:id="@+id/editEvitacion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/light_background"
+            android:ems="10"
+            android:hint="Evitacion"
+            android:inputType="textShortMessage"
+            android:textColor="@color/White"
+            android:textColorHint="@color/LightBlue" />
+
+        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textShortMessage"
@@ -192,18 +204,6 @@
             android:clickable="true"
             android:text="Registrar participante"
             android:textColor="#fff" />
-
-        <EditText
-            android:id="@+id/editEvitacion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:background="@drawable/light_background"
-            android:ems="10"
-            android:hint="Evitacion"
-            android:inputType="textShortMessage"
-            android:textColor="@color/White"
-            android:textColorHint="@color/LightBlue" />
 
 
     </LinearLayout>

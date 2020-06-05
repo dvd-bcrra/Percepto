@@ -1,8 +1,12 @@
 package com.example.percepto;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 
@@ -16,17 +20,23 @@ public class Splash extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
+
+
         Session s = new Session(this);
         s.setNullUser();
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+
                 Intent intent = new Intent(Splash.this,MainActivity.class);
                 startActivity(intent);
                 finish();
 
             }
         } ,2000);
+
     }
+
+
 }

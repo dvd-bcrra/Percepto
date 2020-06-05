@@ -2,9 +2,13 @@ package com.example.percepto;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -41,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
         dbHelper = new DBHelper(this);
         db = dbHelper.getReadableDatabase();
         jw = JsonWords.getInstance(this);
+
+        pedirPermisos();
 
         regis = (TextView) findViewById(R.id.regis);
 
@@ -135,5 +141,19 @@ public class MainActivity extends AppCompatActivity {
                         finish();
                     }
                 }).setNegativeButton("No", null).show();
+    }
+
+    public void pedirPermisos() {
+        // PERMISOS PARA ANDROID 6 O SUPERIOR
+        if(ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(
+                    this,
+                    new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                    0
+            );
+
+        }
     }
 }

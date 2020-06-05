@@ -202,6 +202,33 @@ public class DBHelper extends SQLiteOpenHelper {
         return temp;
     }
 
+    public Participant getParticipant(String curp){
+        db = this.getReadableDatabase();
+        Participant temp = new Participant();
+        Cursor cursor;
+
+        cursor = db.rawQuery("SELECT * FROM " + PARTICIPANT_TABLE + " WHERE " + COLUMN_PARTICIPANT_CURP + " = '" + curp + "';",null);
+        if(cursor.moveToFirst()){
+            temp.setFIRSTNAME(cursor.getString(cursor.getColumnIndex(COLUMN_PARTICIPANT_FIRSTNAME)));
+            temp.setLASTNAME(cursor.getString(cursor.getColumnIndex(COLUMN_PARTICIPANT_LASTNAME)));
+            temp.setCURP(cursor.getString(cursor.getColumnIndex(COLUMN_PARTICIPANT_CURP)));
+            temp.setAGE(Integer.parseInt(cursor.getString(cursor.getColumnIndex(COLUMN_PARTICIPANT_AGE))));
+            temp.setGROUP(cursor.getString(cursor.getColumnIndex(COLUMN_PARTICIPANT_GROUP)));
+            temp.setTIME(cursor.getString(cursor.getColumnIndex(COLUMN_PARTICIPANT_TIME)));
+            temp.setLEVEL(cursor.getString(cursor.getColumnIndex(COLUMN_PARTICIPANT_LEVEL)));
+            temp.setIQ(cursor.getString(cursor.getColumnIndex(COLUMN_PARTICIPANT_IQ)));
+            temp.setREEXP(cursor.getString(cursor.getColumnIndex(COLUMN_PARTICIPANT_REEXP)));
+            temp.setAVOID(cursor.getString(cursor.getColumnIndex(COLUMN_PARTICIPANT_AVOID)));
+            temp.setACTIVE(cursor.getString(cursor.getColumnIndex(COLUMN_PARTICIPANT_ACTIVE)));
+            temp.setANX(cursor.getString(cursor.getColumnIndex(COLUMN_PARTICIPANT_ANX)));
+            temp.setDPRS(cursor.getString(cursor.getColumnIndex(COLUMN_PARTICIPANT_DPRS)));
+        }
+
+        cursor.close();
+        db.close();
+        return temp;
+    }
+
     private ArrayList<Record1> record1s(String EvalID){
         db = this.getReadableDatabase();
         Cursor cursor;
