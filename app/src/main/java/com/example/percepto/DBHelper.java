@@ -5,13 +5,10 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.widget.Toast;
 
 import com.example.percepto.model.*;
-import com.github.mikephil.charting.renderer.scatter.ChevronUpShapeRenderer;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class DBHelper extends SQLiteOpenHelper {
     public static final String TAG = DBHelper.class.getSimpleName();
@@ -47,11 +44,25 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String COLUMN_EVAL1_CURP = "curp";                      //  Curp del participante
     private static final String COLUMN_EVAL1_DATE = "date";                      //  Fecha de la evaluacion 1
 
-    //TABLA REGISTROS1
+    //TABLA REGISTROS 1
     private static final String RECORDS1_TABLE = "eval1Records";                 //  Registros de la evaluacion 1
     private static final String COLUMN_RECORDS1_EVAL1_ID = "eval1_id";           //  ID o clave de la evaluacion 1 (FK)
     private static final String COLUMN_RECORD1_WORD = "word";                    //  Palabra a evaluar
     private static final String COLUMN_RECORD1_SCORE = "score";                  //  calificacion dada
+
+    //TABLA EVALUACIONES 2
+    private static final String EVAL2_TABLE = "evals2";                          //  Evaluaciones 2
+    private static final String COLUMN_EVAL2_ID = "id";                          //  ID o clave de evaluacion 2 (PK)
+    private static final String COLUMN_EVAL2_CURP = "curp";                      //  Curp del participante
+    private static final String COLUMN_EVAL2_DATE = "date";                      //  Fecha de la evaluacion 2
+
+    //TABLA REGISTROS 2
+    private static final String RECORDS2_TABLE = "eval2Records";                //  Registros de la evaluacion 2
+    private static final String COLUMN_RECORDS2_EVAL2_ID = "eval2_id";          //  ID o clave de la evaluacion 2 (FK)
+    private static final String COLUMN_RECORD2_WORD = "word";                   //  Palabra a evaluar
+    private static final String COLUMN_RECORD2_SELECTED_WORD = "selected";      //  Palabra seleccionada
+    private static final String COLUMN_RECORD2_TIME = "time";                   //  Tiempo transcurrido
+    private static final String COLUMN_RECORD2_IS_CORRECT = "iscorrect";        //  Evaluacion de la palabra seleccionada con la palabra a evaluar
 
     private SQLiteDatabase db ;
 
@@ -97,6 +108,20 @@ public class DBHelper extends SQLiteOpenHelper {
                 "(" + COLUMN_RECORDS1_EVAL1_ID + " TEXT, "
                 + COLUMN_RECORD1_WORD + " TEXT, "
                 + COLUMN_RECORD1_SCORE + " INTEGER" +");");
+
+        //CREAR TABLA EVALUACIONES
+        db.execSQL(" CREATE TABLE " + EVAL2_TABLE +
+                "(" + COLUMN_EVAL2_ID + " TEXT, "
+                + COLUMN_EVAL2_CURP + " TEXT, "
+                + COLUMN_EVAL2_DATE + " TEXT " +");");
+
+        //CREAR TABLA REGISTROS
+        db.execSQL(" CREATE TABLE " + RECORDS2_TABLE +
+                "(" + COLUMN_RECORDS2_EVAL2_ID + " TEXT, "
+                + COLUMN_RECORD2_WORD + " TEXT, "
+                + COLUMN_RECORD2_SELECTED_WORD + " TEXT,"
+                + COLUMN_RECORD2_TIME + " TEXT,"
+                + COLUMN_RECORD2_IS_CORRECT + " TEXT" + ");");
     }
 
 
@@ -106,9 +131,10 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + PARTICIPANT_TABLE + ";");
         db.execSQL("DROP TABLE IF EXISTS " + EVAL1_TABLE + ";");
         db.execSQL("DROP TABLE IF EXISTS " + RECORDS1_TABLE + ";");
+        db.execSQL("DROP TABLE IF EXISTS " + EVAL2_TABLE + ";");
+        db.execSQL("DROP TABLE IF EXISTS " + RECORDS2_TABLE + ";");
         onCreate(db);
     }
-
 
     //AGREGAR USUARIO
     void AddUser(User user) {
@@ -150,58 +176,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.close();
     }
 
-    public Cursor getUsersData(){
-        SQLiteDatabase db = this.getWritableDatabase();
-        return db.rawQuery("SELECT * FROM " + USER_TABLE, null);
-    }
-
-    void AddEvaluation1(Evaluation1 evaluation1){
-        db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-
-        values.put(COLUMN_EVAL1_ID, evaluation1.getID());
-        values.put(COLUMN_EVAL1_CURP,evaluation1.getCURP());
-        values.put(COLUMN_EVAL1_DATE,evaluation1.getDATE());
-
-        db.insert(EVAL1_TABLE,null,values);
-        db.close();
-
-        for (Record1 record : evaluation1.getRecords()) {
-            AddRecord(record);
-        }
-    }
-
-    private void AddRecord(Record1 record){
-        db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-
-        values.put(COLUMN_RECORDS1_EVAL1_ID,record.getEVAL1ID());
-        values.put(COLUMN_RECORD1_WORD,record.getWORD());
-        values.put(COLUMN_RECORD1_SCORE, record.getSCORE());
-
-        db.insert(RECORDS1_TABLE,null,values);
-        db.close();
-    }
-
-    public Evaluation1 getEvaluation1(String id){
-        db = this.getReadableDatabase();
-        Evaluation1 temp = new Evaluation1();
-        Cursor cursor;
-
-        cursor = db.rawQuery("SELECT * FROM " + EVAL1_TABLE + " WHERE " + COLUMN_EVAL1_ID + " = '" + id + "';",null);
-        if(cursor.moveToFirst()){
-            temp.setID(cursor.getString(cursor.getColumnIndex(COLUMN_EVAL1_ID)));
-            temp.setCURP(cursor.getString(cursor.getColumnIndex(COLUMN_EVAL1_CURP)));
-            temp.setDATE(cursor.getString(cursor.getColumnIndex(COLUMN_EVAL1_DATE)));
-        }
-
-        temp.setRecords(record1s(temp.getID()));
-
-        cursor.close();
-        db.close();
-        return temp;
-    }
-
+    //OBTENER PARTICIPANTE
     public Participant getParticipant(String curp){
         db = this.getReadableDatabase();
         Participant temp = new Participant();
@@ -229,7 +204,58 @@ public class DBHelper extends SQLiteOpenHelper {
         return temp;
     }
 
-    private ArrayList<Record1> record1s(String EvalID){
+    //AGREGAR EVALUACION 1
+    void AddEvaluation1(Evaluation1 evaluation1){
+        db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(COLUMN_EVAL1_ID, evaluation1.getID());
+        values.put(COLUMN_EVAL1_CURP,evaluation1.getCURP());
+        values.put(COLUMN_EVAL1_DATE,evaluation1.getDATE());
+
+        db.insert(EVAL1_TABLE,null,values);
+        db.close();
+
+        for (Record1 record : evaluation1.getRecords()) {
+            AddRecord1(record);
+        }
+    }
+
+    //AGREGAR RECORD TIPO 1
+    private void AddRecord1(Record1 record){
+        db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(COLUMN_RECORDS1_EVAL1_ID,record.getEVAL1ID());
+        values.put(COLUMN_RECORD1_WORD,record.getWORD());
+        values.put(COLUMN_RECORD1_SCORE, record.getSCORE());
+
+        db.insert(RECORDS1_TABLE,null,values);
+        db.close();
+    }
+
+    //OBTENER EVALUACION 1
+    public Evaluation1 getEvaluation1(String id){
+        db = this.getReadableDatabase();
+        Evaluation1 temp = new Evaluation1();
+        Cursor cursor;
+
+        cursor = db.rawQuery("SELECT * FROM " + EVAL1_TABLE + " WHERE " + COLUMN_EVAL1_ID + " = '" + id + "';",null);
+        if(cursor.moveToFirst()){
+            temp.setID(cursor.getString(cursor.getColumnIndex(COLUMN_EVAL1_ID)));
+            temp.setCURP(cursor.getString(cursor.getColumnIndex(COLUMN_EVAL1_CURP)));
+            temp.setDATE(cursor.getString(cursor.getColumnIndex(COLUMN_EVAL1_DATE)));
+        }
+
+        temp.setRecords(getRecords1(temp.getID()));
+
+        cursor.close();
+        db.close();
+        return temp;
+    }
+
+    //OBTENER RECORD TIPO 1
+    private ArrayList<Record1> getRecords1(String EvalID){
         db = this.getReadableDatabase();
         Cursor cursor;
         ArrayList<Record1> temp = new ArrayList<>();
@@ -241,6 +267,82 @@ public class DBHelper extends SQLiteOpenHelper {
                 record.setEVAL1ID(cursor.getString(cursor.getColumnIndex(COLUMN_RECORDS1_EVAL1_ID)));
                 record.setWORD(cursor.getString(cursor.getColumnIndex(COLUMN_RECORD1_WORD)));
                 record.setSCORE(cursor.getInt(cursor.getColumnIndex(COLUMN_RECORD1_SCORE)));
+                temp.add(record);
+            }while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+        return temp;
+    }
+
+    //AGREGAR EVALUACION 2
+    void AddEvaluation2(Evaluation2 evaluation2){
+        db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(COLUMN_EVAL2_ID, evaluation2.getID());
+        values.put(COLUMN_EVAL2_CURP,evaluation2.getCURP());
+        values.put(COLUMN_EVAL2_DATE,evaluation2.getDATE());
+
+        db.insert(EVAL2_TABLE,null,values);
+        db.close();
+
+        for (Record2 record : evaluation2.getRecords()) {
+            AddRecord2(record);
+        }
+    }
+
+    //AGREGAR RECORD TIPO 2
+    private void AddRecord2(Record2 record){
+        db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(COLUMN_RECORDS2_EVAL2_ID,record.getEVAL2ID());
+        values.put(COLUMN_RECORD2_WORD,record.getWORD());
+        values.put(COLUMN_RECORD2_SELECTED_WORD, record.getSELECTED_WORD());
+        values.put(COLUMN_RECORD2_TIME, record.getTIME());
+        values.put(COLUMN_RECORD2_SELECTED_WORD, record.getIS_CORRECT());
+
+        db.insert(RECORDS2_TABLE,null,values);
+        db.close();
+    }
+
+    //OBTENER EVALUACION 2
+    public Evaluation2 getEvaluation2(String id){
+        db = this.getReadableDatabase();
+        Evaluation2 temp = new Evaluation2();
+        Cursor cursor;
+
+        cursor = db.rawQuery("SELECT * FROM " + EVAL2_TABLE + " WHERE " + COLUMN_EVAL2_ID + " = '" + id + "';",null);
+        if(cursor.moveToFirst()){
+            temp.setID(cursor.getString(cursor.getColumnIndex(COLUMN_EVAL2_ID)));
+            temp.setCURP(cursor.getString(cursor.getColumnIndex(COLUMN_EVAL2_CURP)));
+            temp.setDATE(cursor.getString(cursor.getColumnIndex(COLUMN_EVAL2_DATE)));
+        }
+
+        temp.setRecords(getRecords2(temp.getID()));
+
+        cursor.close();
+        db.close();
+        return temp;
+    }
+
+    //OBTENER RECORD TIPO 2
+    private ArrayList<Record2> getRecords2(String EvalID){
+        db = this.getReadableDatabase();
+        Cursor cursor;
+        ArrayList<Record2> temp = new ArrayList<>();
+
+        cursor = db.rawQuery("SELECT * FROM " + RECORDS2_TABLE + " WHERE " + COLUMN_RECORDS2_EVAL2_ID + " = '" + EvalID + "';",null);
+        if(cursor.moveToFirst()){
+            do{
+                Record2 record = new Record2();
+                record.setEVAL2ID(cursor.getString(cursor.getColumnIndex(COLUMN_RECORDS2_EVAL2_ID)));
+                record.setWORD(cursor.getString(cursor.getColumnIndex(COLUMN_RECORD2_WORD)));
+                record.setSELECTED_WORD(cursor.getString(cursor.getColumnIndex(COLUMN_RECORD2_SELECTED_WORD)));
+                record.setTIME(cursor.getString(cursor.getColumnIndex(COLUMN_RECORD2_TIME)));
+                record.setIS_CORRECT(cursor.getString(cursor.getColumnIndex(COLUMN_RECORD2_IS_CORRECT)));
                 temp.add(record);
             }while (cursor.moveToNext());
         }

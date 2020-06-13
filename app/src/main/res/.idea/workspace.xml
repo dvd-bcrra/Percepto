@@ -2,16 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a3169729-7eb1-4f1b-ba6a-f9fa1aef5cf1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../java/com/example/percepto/Phase1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/drawable/ic_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/drawable/light_purple_background.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/layout/activity_phase1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java/com/example/percepto/Phase2Launcher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java/com/example/percepto/model/Evaluation2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../java/com/example/percepto/model/Record2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/layout/activity_phase2_launcher.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/com/example/percepto/Phase1Launcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java/com/example/percepto/Phase1Launcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/com/example/percepto/model/Evaluation1.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java/com/example/percepto/model/Evaluation1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../java/com/example/percepto/session/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java/com/example/percepto/session/Session.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/layout/activity_phase1_launcher.xml" beforeDir="false" afterPath="$PROJECT_DIR$/layout/activity_phase1_launcher.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../java/com/example/percepto/DBHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../java/com/example/percepto/DBHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/values/strings.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -54,7 +51,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
