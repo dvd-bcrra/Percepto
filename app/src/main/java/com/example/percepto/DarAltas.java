@@ -36,7 +36,7 @@ public class DarAltas extends AppCompatActivity {
     }
 
     public void btnRegisterUser_Click(View view) {
-        Intent newIntent2 = new Intent(DarAltas.this,Create_account.class);
+        Intent newIntent2 = new Intent(DarAltas.this,Phase2.class);
         startActivity(newIntent2);
     }
 

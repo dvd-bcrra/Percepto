@@ -84,14 +84,15 @@ public class Test_completed extends AppCompatActivity {
     }
 
     public void btnCompletedNext_Click(View view) {
-
-        Participant participant = db.getParticipant(session.getCurrentParticipantCurp());
-        String nombreArchivo = participant.getFIRSTNAME() + "-" + participant.getLASTNAME() + ".csv";
         if(generarCSV.isChecked()){
+            Participant participant = db.getParticipant(session.getCurrentParticipantCurp());
+            String nombreArchivo = participant.getFIRSTNAME() + "-" + participant.getLASTNAME() + ".csv";
             CsvGenerator generator = new CsvGenerator(nombreArchivo,participant,evaluation1,this);
             generator.GenerarEvaluacion1();
             Toast.makeText(this, "Archivo Generado con exito", Toast.LENGTH_SHORT).show();
         }
+        Intent newIntent = new Intent(Test_completed.this,Phase2Launcher.class);
+        startActivity(newIntent);
     }
 
     private static class LineDataFormatter implements IValueFormatter {
