@@ -76,16 +76,7 @@
             android:text="Inicia sesión"
             android:textColor="@color/White" />
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_marginTop="12sp"
-            android:clickable="true"
-            android:gravity="left"
-            android:textColor="@color/White"
-            android:text="¿Olvidaste tu contraseña? " />
+
 
     </LinearLayout>
 

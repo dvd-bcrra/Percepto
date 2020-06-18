@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Percepto</string>
+    <string name="app_name">EPerSC</string>
     <string name="Phase1Description">
         Indica la familiaridad de la palabra que verás.
         Selecciona carita triste si es poco familiar y carita feliz si es muy familiar.
@@ -16,5 +16,5 @@
     <string name="Phase2Completed">
         Bien hecho, pulsa finalizar para salir de la prueba.
     </string>
-
+    <string name="Test"><a href="https://drive.google.com/file/d/1OczvhTUmmXKLdqXu7T0HuIdGvjM3SHAZ/view?usp=sharing">Test</a></string>
 </resources>

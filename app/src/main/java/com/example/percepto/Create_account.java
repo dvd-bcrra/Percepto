@@ -3,7 +3,10 @@ package com.example.percepto;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.style.UnderlineSpan;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -16,6 +19,7 @@ import com.example.percepto.session.Session;
 
 public class Create_account extends AppCompatActivity {
     CheckBox maceptcond;
+    TextView txt;
 
     EditText editNombre;
     EditText editApellido;
@@ -54,13 +58,27 @@ public class Create_account extends AppCompatActivity {
         editAnsiedad = findViewById(R.id.editAnsiedad);
         editDepresion = findViewById(R.id.editDepresion);
         spGrupo = findViewById(R.id.spGroup);
-
+        txt = findViewById(R.id.txt);
         dbHelper = new DBHelper(this);
         session = new Session(this);
 
 
+        txt = (TextView)findViewById(R.id.txt);
+        SpannableString content = new SpannableString(txt.getText());
+        content.setSpan(new UnderlineSpan(), 0, txt.length(), 0);
+        txt.setText(content);
+        txt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse("https://drive.google.com/file/d/1OczvhTUmmXKLdqXu7T0HuIdGvjM3SHAZ/view?usp=sharing"));
+                startActivity(i);
+            }
+        });
 
     }
+
+
 
     private final static String[] names = { "Ninguna", "TEPT-ASI", "CH Control Hogar",
             "CF Contol Familia" };
@@ -100,7 +118,7 @@ public class Create_account extends AppCompatActivity {
                 Intent Phase1Launcher = new Intent(this, Phase1Launcher.class);
                 startActivity(Phase1Launcher);
             }else{
-                Toast.makeText(this,"Firmala Gio",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"Debes Aceptar terminos para continuar",Toast.LENGTH_SHORT).show();
             }
         }
     }
