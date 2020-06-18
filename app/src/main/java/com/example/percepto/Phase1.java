@@ -33,6 +33,7 @@ import javax.xml.transform.Templates;
 
 public class Phase1 extends AppCompatActivity {
 
+    private int numReactivos = 60;
     private int numPregunta;
     Evaluation1 eval;
     Session session;
@@ -97,7 +98,7 @@ public class Phase1 extends AppCompatActivity {
     }
 
     public void CargarPregunta(){
-        if (numPregunta == 20){
+        if (numPregunta == numReactivos){
             db.AddEvaluation1(eval);
             Intent TestCompleted = new Intent(Phase1.this,Test_completed.class);
             TestCompleted.putExtra("ID_EVAL1",eval.getID());
@@ -112,17 +113,17 @@ public class Phase1 extends AppCompatActivity {
         ArrayList<String> temp = new ArrayList<>();
         JsonWords words = JsonWords.getInstance();
 
-        for(int i = 0; i < 7; i++){
+        for(int i = 0; i < 20; i++){
             String palabraAlegre = words.PalabrasAlegres.get(i);
             temp.add(palabraAlegre);
         }
 
-        for(int i = 0; i < 7; i++){
+        for(int i = 0; i < 20; i++){
             String palabraMiedosa = words.PalabrasMiedosas.get(i);
             temp.add(palabraMiedosa);
         }
 
-        for(int i = 0; i < 6; i++){
+        for(int i = 0; i < 20; i++){
             String palabraNeutra = words.PalabrasNeutras.get(i);
             temp.add(palabraNeutra);
         }

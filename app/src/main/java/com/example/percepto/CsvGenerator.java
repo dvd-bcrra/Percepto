@@ -10,8 +10,10 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.example.percepto.model.Evaluation1;
+import com.example.percepto.model.Evaluation2;
 import com.example.percepto.model.Participant;
 import com.example.percepto.model.Record1;
+import com.example.percepto.model.Record2;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -23,6 +25,7 @@ public class CsvGenerator {
     private File folder;
     private Participant participant;
     private Evaluation1 evaluation1;
+    private Evaluation2 evaluation2;
     private String NombreArchivo;
     public CsvGenerator(String NombreArchivo, Participant participant, Evaluation1 evaluation1, Context context) {
         this.participant = participant;
@@ -31,14 +34,14 @@ public class CsvGenerator {
         this.context = context;
     }
 
-    public void GenerarEvaluacion1(){
-        /* File folder = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + "/Percepto");
-        String archivo = folder.toString() + "/" + NombreArchivo + ".csv";
+    public CsvGenerator(String NombreArchivo, Participant participant, Evaluation2 evaluation2, Context context) {
+        this.participant = participant;
+        this.evaluation2 = evaluation2;
+        this.NombreArchivo = NombreArchivo;
+        this.context = context;
+    }
 
-        boolean isCreated = false;
-        if (!folder.exists()){
-            isCreated = folder.mkdir() ;
-        }*/
+    public void GenerarEvaluacion1(){
 
         try {
 
@@ -64,6 +67,33 @@ public class CsvGenerator {
             writer.append("Palabra").append(",").append("Puntuacion").append("\n");
             for (Record1 record1 : evaluation1.getRecords()) {
                 writer.append(record1.getWORD()).append(",").append(Integer.toString(record1.getSCORE())).append("\n");
+            }
+
+            writer.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+    public void GenerarEvaluacion2(){
+
+        try {
+
+            FileWriter writer = new FileWriter(new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS),NombreArchivo),true);
+
+            writer.append("\n\n");
+
+            //Almacenar datos de la evaluacion
+            writer.append("Evaluacion 2 - ").append(evaluation2.getDATE()).append("\n");
+            writer.append("Palabra correcta").append(",").append("Palabra seleccionada").append(",").append("Tiempo transcurrido").append(",").append("Evaluacion").append("\n");
+            for (Record2 record2 : evaluation2.getRecords()) {
+                writer.append(record2.getWORD()).append(",");
+                writer.append(record2.getSELECTED_WORD()).append(",");
+                writer.append(record2.getTIME()).append(",");
+                writer.append(record2.getIS_CORRECT()).append("\n");
             }
 
             writer.close();

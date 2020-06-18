@@ -13,5 +13,8 @@
         Para continuar con la siguiente prueba, pulse siguiente.
         Para volver al inicio pulse el boton de regresar.
     </string>
+    <string name="Phase2Completed">
+        Bien hecho, pulsa finalizar para salir de la prueba.
+    </string>
 
 </resources>

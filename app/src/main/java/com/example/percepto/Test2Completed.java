@@ -12,8 +12,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.Toast;
 
-import com.example.percepto.model.Evaluation1;
-import com.example.percepto.model.Participant;
+import com.example.percepto.model.*;
 import com.example.percepto.session.Session;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.AxisBase;
@@ -30,28 +29,28 @@ import java.security.PrivateKey;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class Test_completed extends AppCompatActivity {
+public class Test2Completed extends AppCompatActivity {
 
     private LineChart lineChart;
     private LineDataSet lineDataSet;
 
     DBHelper db;
     Session session;
-    private Evaluation1 evaluation1;
+    private Evaluation2 evaluation2;
     CheckBox generarCSV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test_completed);
+        setContentView(R.layout.activity_test2_completed);
 
         db = new DBHelper(this);
         session = new Session(this);
         generarCSV = findViewById(R.id.chkExportar);
 
-        String evalid = Objects.requireNonNull(getIntent().getExtras()).getString("ID_EVAL1");
-        evaluation1 = db.getEvaluation1(evalid);
-        CargarGrafica(evaluation1);
+        String evalid = Objects.requireNonNull(getIntent().getExtras()).getString("ID_EVAL2");
+        evaluation2 = db.getEvaluation2(evalid);
+        CargarGrafica(evaluation2);
 
         if(session.UserIsAdmin()){
             generarCSV.setVisibility(View.VISIBLE);
@@ -61,11 +60,11 @@ public class Test_completed extends AppCompatActivity {
         }
     }
 
-    private void CargarGrafica(Evaluation1 eval){
+    private void CargarGrafica(Evaluation2 eval){
         lineChart = findViewById(R.id.lineChart);
         ArrayList<Entry> lineEntries = new ArrayList<Entry>();
         for (int i = 0; i<eval.getRecords().size(); i++) {
-            int y = eval.getRecords().get(i).getSCORE();
+            int y = onezero(eval.getRecords().get(i).getIS_CORRECT());
             lineEntries.add(new Entry(i+1,y));
         }
 
@@ -93,11 +92,11 @@ public class Test_completed extends AppCompatActivity {
         if(generarCSV.isChecked()){
             Participant participant = db.getParticipant(session.getCurrentParticipantCurp());
             String nombreArchivo = participant.getFIRSTNAME() + "-" + participant.getLASTNAME() + ".csv";
-            CsvGenerator generator = new CsvGenerator(nombreArchivo,participant,evaluation1,this);
-            generator.GenerarEvaluacion1();
-            Toast.makeText(this, "Archivo Generado con exito", Toast.LENGTH_SHORT).show();
+            CsvGenerator generator = new CsvGenerator(nombreArchivo,participant,evaluation2,this);
+            generator.GenerarEvaluacion2();
+            Toast.makeText(this, "Evaluacion guardada con exito", Toast.LENGTH_SHORT).show();
         }
-        Intent newIntent = new Intent(Test_completed.this,Phase2Launcher.class);
+        Intent newIntent = new Intent(Test2Completed.this,DarAltas.class);
         startActivity(newIntent);
     }
 
@@ -117,5 +116,12 @@ public class Test_completed extends AppCompatActivity {
         }
     }
 
-
+    private int onezero(String is_correct){
+        if(is_correct.equals("Incorrecta")){
+            return 0;
+        }
+        else{
+            return 1;
+        }
+    }
 }

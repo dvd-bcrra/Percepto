@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Phase2"></activity>
+        <activity android:name=".Test2Completed"></activity>
+        <activity android:name=".Phase2" />
         <activity android:name=".Phase2Launcher" />
         <activity android:name=".graph_data" />
         <activity android:name=".Create_account" />

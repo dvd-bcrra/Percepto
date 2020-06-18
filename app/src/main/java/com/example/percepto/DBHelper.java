@@ -302,7 +302,7 @@ public class DBHelper extends SQLiteOpenHelper {
         values.put(COLUMN_RECORD2_WORD,record.getWORD());
         values.put(COLUMN_RECORD2_SELECTED_WORD, record.getSELECTED_WORD());
         values.put(COLUMN_RECORD2_TIME, record.getTIME());
-        values.put(COLUMN_RECORD2_SELECTED_WORD, record.getIS_CORRECT());
+        values.put(COLUMN_RECORD2_IS_CORRECT, record.getIS_CORRECT());
 
         db.insert(RECORDS2_TABLE,null,values);
         db.close();
