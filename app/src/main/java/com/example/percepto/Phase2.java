@@ -27,7 +27,7 @@ import java.util.Random;
 public class Phase2 extends AppCompatActivity {
 
     int numPalabra;
-    int cantidadReactivos = 120;
+    int cantidadReactivos = 3;
 
     DBHelper db;
     Session session;
