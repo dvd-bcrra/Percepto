@@ -95,7 +95,7 @@
                     android:textAlignment="center"
                     android:paddingHorizontal="20dp"
                     android:paddingVertical="20dp"
-                    android:textSize="28sp"
+                    android:textSize="24sp"
                     android:fontFamily="monospace"
                     android:textStyle="bold"
                     android:background="@drawable/light_purple_background"
