@@ -2,16 +2,15 @@
     <string name="app_name">EPerSC</string>
     <string name="Phase1Description">
         Indica la familiaridad de la palabra que verás.
-        Selecciona carita triste si es poco familiar y carita feliz si es muy familiar.
+        Selecciona 1 si es poco familiar y 5 si es muy familiar.
     </string>
     <string name="Phase2Description">
         A las siguientes palabras le faltan algunas letras.
         Selecciona la palabra que consideres correcta.
     </string>
     <string name="Phase1Completed">
-        Bien hecho, lo lograste.
+        Bien hecho.
         Para continuar con la siguiente prueba, pulse siguiente.
-        Para volver al inicio pulse el boton de regresar.
     </string>
     <string name="Phase2Completed">
         Bien hecho, pulsa finalizar para salir de la prueba.

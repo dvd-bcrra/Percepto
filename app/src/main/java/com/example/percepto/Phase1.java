@@ -33,7 +33,7 @@ import javax.xml.transform.Templates;
 
 public class Phase1 extends AppCompatActivity {
 
-    private int numReactivos = 3;
+    private int numReactivos = 60;
     private int numPregunta;
     Evaluation1 eval;
     Session session;

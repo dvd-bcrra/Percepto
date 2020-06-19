@@ -27,7 +27,7 @@ import java.util.Random;
 public class Phase2 extends AppCompatActivity {
 
     int numPalabra;
-    int cantidadReactivos = 3;
+    int cantidadReactivos = 120;
 
     DBHelper db;
     Session session;
@@ -109,8 +109,6 @@ public class Phase2 extends AppCompatActivity {
         else{
             txtPalabra.setVisibility(View.VISIBLE);
             llOpciones.setVisibility(View.INVISIBLE);
-            Cronometro.setBase(SystemClock.elapsedRealtime());
-            Cronometro.start();
 
             Shuffle(PalabrasAuxiliares);
 
@@ -188,6 +186,9 @@ public class Phase2 extends AppCompatActivity {
                 txtContador.setText("");
                 txtPalabra.setVisibility(View.INVISIBLE);
                 llOpciones.setVisibility(View.VISIBLE);
+
+                Cronometro.setBase(SystemClock.elapsedRealtime());
+                Cronometro.start();
             }
         }.start();
     }

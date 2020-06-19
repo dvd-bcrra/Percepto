@@ -20,12 +20,4 @@ public class Phase1Launcher extends AppCompatActivity {
         Intent newIntent = new Intent(Phase1Launcher.this,Phase1.class);
         startActivity(newIntent);
     }
-
-    public void btnPhase1Back_Click(View view) {
-
-    }
-
-    public void btnPhase1Skip_Click(View view) {
-
-    }
 }
