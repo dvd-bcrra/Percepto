@@ -218,6 +218,7 @@ public class Phase2 extends AppCompatActivity {
             for (String item : PalabrasAuxiliares) {
                 if(!item.equals(PalabraCorrecta)){
                     if(item.charAt(0) == PalabraCorrecta.charAt(0)){
+                        //caso 0
                         temp = item;
                         break;
                     }
@@ -228,6 +229,7 @@ public class Phase2 extends AppCompatActivity {
         if(temp.equals("")){
             for (String item : PalabrasAuxiliares) {
                 if(!item.equals(PalabraCorrecta)){
+                    //caso 1
                     temp = item;
                     break;
                 }
@@ -236,11 +238,13 @@ public class Phase2 extends AppCompatActivity {
 
         //CASO ESPECIAL HERMANO-HERMANA
         if(PalabraCorrecta.equals("Hermano") || PalabraCorrecta.equals("Hermana")){
+            //caso 3
             temp = "Deporte";
         }
 
         //CASO ESPECIAL REGALO-REGAÑO
         if(PalabraCorrecta.equals("Regalo") || PalabraCorrecta.equals("Regaño")){
+            //caso 4
             temp = "Deporte";
         }
 
@@ -262,6 +266,7 @@ public class Phase2 extends AppCompatActivity {
         if(temp.equals("")){
             for (String item : PalabrasAuxiliares) {
                 if(!item.equals(PalabraCorrecta) && !item.equals(PalabraIncorrecta)){
+                    //caso 2
                     temp = item;
                     break;
                 }
