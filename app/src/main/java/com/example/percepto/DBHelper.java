@@ -65,7 +65,7 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String COLUMN_RECORD2_IS_CORRECT = "iscorrect";        //  Evaluacion de la palabra seleccionada con la palabra a evaluar
 
     private SQLiteDatabase db ;
-
+    //mira nomas, el proyecto pudo no haber funcionado nomas por no usar la version 3 de sqlite
     public DBHelper(Context context) {
         super(context, DB_NAME, null, 3);
     }
